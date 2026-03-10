@@ -88,7 +88,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$layout$
 ;
 ;
 const metadata = {
-    title: "Genie OS",
+    title: "AdFactory AI",
     description: "Discover, analyze, and replicate winning competitor ads"
 };
 function RootLayout({ children }) {

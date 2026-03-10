@@ -305,7 +305,7 @@ function Sidebar() {
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "font-bold text-lg",
-                        children: "Genie OS"
+                        children: "AdFactory AI"
                     }, void 0, false, {
                         fileName: "[project]/src/components/layout/sidebar.tsx",
                         lineNumber: 36,
@@ -386,7 +386,7 @@ function Sidebar() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-[10px] text-muted-foreground",
-                                    children: "Genie OS v1.0"
+                                    children: "AdFactory AI v1.0"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
                                     lineNumber: 79,
@@ -405,7 +405,7 @@ function Sidebar() {
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "text-xs text-muted-foreground",
-                    children: "Genie OS v1.0"
+                    children: "AdFactory AI v1.0"
                 }, void 0, false, {
                     fileName: "[project]/src/components/layout/sidebar.tsx",
                     lineNumber: 83,

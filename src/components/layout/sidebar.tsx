@@ -33,7 +33,7 @@ export function Sidebar() {
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-border bg-black flex flex-col">
       <div className="flex items-center gap-2 px-6 py-5 border-b border-border">
         <Sparkles className="h-6 w-6 text-primary" />
-        <span className="font-bold text-lg">Genie OS</span>
+        <span className="font-bold text-lg">AdFactory AI</span>
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-1">
@@ -76,11 +76,11 @@ export function Sidebar() {
             </div>
             <div className="min-w-0">
               <p className="text-sm font-medium truncate">{brandName}</p>
-              <p className="text-[10px] text-muted-foreground">Genie OS v1.0</p>
+              <p className="text-[10px] text-muted-foreground">AdFactory AI v1.0</p>
             </div>
           </div>
         ) : (
-          <div className="text-xs text-muted-foreground">Genie OS v1.0</div>
+          <div className="text-xs text-muted-foreground">AdFactory AI v1.0</div>
         )}
       </div>
     </aside>

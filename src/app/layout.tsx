@@ -4,7 +4,7 @@ import { Sidebar } from "@/components/layout/sidebar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Genie OS",
+  title: "AdFactory AI",
   description: "Discover, analyze, and replicate winning competitor ads",
 };
 
