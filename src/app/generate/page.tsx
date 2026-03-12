@@ -26,7 +26,7 @@ import {
 import Image from "next/image";
 
 export default function GeneratePage() {
-  const { brandProfile, setAnalysis, incrementUsage, addErrorLog } = useAppStore();
+  const { brandProfile, setAnalysis, incrementUsage, addErrorLog, addGenerationDate, addAnalysisDate } = useAppStore();
 
   // All generate state lives in the dedicated store (survives navigation)
   const {
@@ -96,6 +96,7 @@ export default function GeneratePage() {
       setLocalAnalysis(data.data);
       setAnalysis(selectedAd.id, data.data);
       incrementUsage("adsAnalyzed");
+      addAnalysisDate(new Date().toISOString());
       setStep("configure");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Analysis failed");
@@ -203,6 +204,7 @@ export default function GeneratePage() {
         setVariations([...newVariations]);
         incrementUsage("adsGenerated");
         incrementUsage("generationCostUsd", 0.134);
+        addGenerationDate(new Date().toISOString());
       } catch (err) {
         newVariations[i] = { ...newVariations[i], status: "rejected" };
         setVariations([...newVariations]);

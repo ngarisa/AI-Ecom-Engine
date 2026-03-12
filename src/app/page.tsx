@@ -11,7 +11,7 @@ import { useAppStore } from "@/lib/store";
 import type { ForeplayAd } from "@/types/foreplay";
 import type { AdAnalysis } from "@/types";
 import { useRouter } from "next/navigation";
-import { LayoutDashboard } from "lucide-react";
+import { LayoutDashboard, LayoutGrid, Grid2X2, Grid3X3 } from "lucide-react";
 
 export default function HomePage() {
   const router = useRouter();
@@ -21,16 +21,17 @@ export default function HomePage() {
     order: "longest_running",
     minDays: "7",
     platform: "",
-    niche: "",
+    niches: [],
   });
-  const [selectedCompetitor, setSelectedCompetitor] = useState("all");
+  const [selectedCompetitors, setSelectedCompetitors] = useState<string[]>(["all"]);
   const [analyzingAd, setAnalyzingAd] = useState<ForeplayAd | null>(null);
   const [cursor, setCursor] = useState<number | undefined>(undefined);
+  const [columns, setColumns] = useState<2 | 4 | 8>(4);
 
   const brandIds =
-    selectedCompetitor === "all"
+    selectedCompetitors.includes("all")
       ? competitors.map((c) => c.foreplayBrandId)
-      : [selectedCompetitor];
+      : selectedCompetitors;
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["brand-ads", brandIds, filters, cursor],
@@ -40,7 +41,7 @@ export default function HomePage() {
       brandIds.forEach((id) => params.append("brand_ids", id));
       if (filters.minDays) params.set("running_duration_min_days", filters.minDays);
       if (filters.platform) params.append("publisher_platform", filters.platform);
-      if (filters.niche) params.append("niches", filters.niche);
+      filters.niches.forEach((n) => params.append("niches", n));
       params.set("order", filters.order);
       params.set("display_format", "image");
       params.set("limit", "30");
@@ -92,13 +93,36 @@ export default function HomePage() {
         </p>
       </div>
 
-      <Filters
-        filters={filters}
-        onFiltersChange={setFilters}
-        competitorOptions={competitorOptions}
-        selectedCompetitor={selectedCompetitor}
-        onCompetitorChange={setSelectedCompetitor}
-      />
+      <div className="flex items-center gap-3">
+        <div className="flex-1">
+          <Filters
+            filters={filters}
+            onFiltersChange={setFilters}
+            competitorOptions={competitorOptions}
+            selectedCompetitors={selectedCompetitors}
+            onCompetitorsChange={setSelectedCompetitors}
+          />
+        </div>
+        <div className="flex items-center gap-1 border border-border rounded-lg p-1 shrink-0">
+          {([2, 4, 8] as const).map((n) => {
+            const Icon = n === 2 ? Grid2X2 : n === 4 ? LayoutGrid : Grid3X3;
+            return (
+              <button
+                key={n}
+                onClick={() => setColumns(n)}
+                title={`${n} per row`}
+                className={`p-1.5 rounded transition-colors ${
+                  columns === n
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                <Icon className="h-4 w-4" />
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {competitors.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
@@ -125,7 +149,11 @@ export default function HomePage() {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className={`grid gap-4 ${
+            columns === 2 ? "grid-cols-1 sm:grid-cols-2" :
+            columns === 8 ? "grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8" :
+            "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          }`}>
             {ads.map((ad) => (
               <AdCard
                 key={ad.id}
@@ -133,6 +161,7 @@ export default function HomePage() {
                 analysisScore={analyses[ad.id]?.overallScore}
                 onAnalyze={handleAnalyze}
                 onDuplicate={() => handleDuplicate(ad)}
+                compact={columns === 8}
               />
             ))}
           </div>

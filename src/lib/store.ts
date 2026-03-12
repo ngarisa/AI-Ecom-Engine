@@ -53,6 +53,18 @@ interface AppState {
   errorLogs: ErrorLogEntry[];
   addErrorLog: (entry: Omit<ErrorLogEntry, "id" | "timestamp">) => void;
   clearErrorLogs: () => void;
+
+  // Theme
+  theme: "dark" | "light";
+  setTheme: (theme: "dark" | "light") => void;
+
+  // Generation history (lightweight — just ISO date strings)
+  generationDates: string[];
+  addGenerationDate: (date: string) => void;
+
+  // Analysis history (lightweight — just ISO date strings)
+  analysisDates: string[];
+  addAnalysisDate: (date: string) => void;
 }
 
 export const useAppStore = create<AppState>()(
@@ -145,6 +157,17 @@ export const useAppStore = create<AppState>()(
           ].slice(0, 200), // keep last 200 entries
         })),
       clearErrorLogs: () => set({ errorLogs: [] }),
+
+      theme: "dark",
+      setTheme: (theme) => set({ theme }),
+
+      generationDates: [],
+      addGenerationDate: (date) =>
+        set((state) => ({ generationDates: [...state.generationDates, date] })),
+
+      analysisDates: [],
+      addAnalysisDate: (date) =>
+        set((state) => ({ analysisDates: [...state.analysisDates, date] })),
     }),
     {
       name: "ai-ecom-engine-store",
@@ -153,6 +176,9 @@ export const useAppStore = create<AppState>()(
         competitors: state.competitors,
         usage: state.usage,
         errorLogs: state.errorLogs,
+        theme: state.theme,
+        generationDates: state.generationDates,
+        analysisDates: state.analysisDates,
         // Exclude generatedAds (base64 images) and analyses (large JSON) from localStorage
       }),
     }

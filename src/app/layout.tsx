@@ -14,12 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body>
         <Providers>
           <div className="flex min-h-screen">
             <Sidebar />
-            <main className="flex-1 ml-64 bg-black min-h-screen">
+            <main className="flex-1 ml-64 bg-background min-h-screen">
               <div className="p-6 max-w-[1600px] mx-auto">{children}</div>
             </main>
           </div>

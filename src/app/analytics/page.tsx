@@ -15,8 +15,157 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
+function AdsCreatedChart({ generatedAds, accentColor = "#6366f1" }: { generatedAds: { createdAt: string }[]; accentColor?: string }) {
+  const days = 14;
+  const today = new Date();
+
+  const data = Array.from({ length: days }, (_, i) => {
+    const d = new Date(today);
+    d.setDate(today.getDate() - (days - 1 - i));
+    const key = d.toISOString().slice(0, 10);
+    const label = d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    const count = generatedAds.filter((a) => a.createdAt?.slice(0, 10) === key).length;
+    return { label, count };
+  });
+
+  const rawMax = Math.max(...data.map((d) => d.count), 0);
+  // Pick a clean nice max: at least 4, rounded up to nearest even number
+  const niceMax = rawMax <= 4 ? Math.max(rawMax, 4) : Math.ceil(rawMax / 2) * 2;
+  const chartH = 160;
+  const paddingLeft = 28;
+  const paddingRight = 8;
+  const paddingTop = 16;
+  const paddingBottom = 32;
+  // Only show as many grid lines as we have unique integer steps
+  const gridSteps = Math.min(niceMax, 4);
+  const mono = "'SF Mono', 'Fira Code', 'Fira Mono', monospace";
+
+  return (
+    <div className="w-full">
+      <svg
+        width="100%"
+        viewBox={`0 0 600 ${chartH + paddingTop + paddingBottom}`}
+        preserveAspectRatio="none"
+        className="w-full"
+        style={{ height: chartH + paddingTop + paddingBottom }}
+      >
+        {/* Grid lines */}
+        {Array.from({ length: gridSteps + 1 }, (_, i) => {
+          const y = paddingTop + (chartH / gridSteps) * i;
+          const val = Math.round(niceMax - (niceMax / gridSteps) * i);
+          return (
+            <g key={i}>
+              <line
+                x1={paddingLeft}
+                y1={y}
+                x2={600 - paddingRight}
+                y2={y}
+                stroke="currentColor"
+                strokeOpacity={i === gridSteps ? 0.15 : 0.07}
+                strokeWidth={1}
+                strokeDasharray={i === gridSteps ? "none" : "none"}
+              />
+              <text
+                x={paddingLeft - 6}
+                y={y + 4}
+                textAnchor="end"
+                fontSize={9}
+                fontFamily={mono}
+                fill="currentColor"
+                fillOpacity={0.35}
+                letterSpacing={-0.5}
+              >
+                {val}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Bars */}
+        {data.map((d, i) => {
+          const totalBarArea = 600 - paddingLeft - paddingRight;
+          const slotW = totalBarArea / days;
+          const barW = Math.max(slotW * 0.55, 8);
+          const x = paddingLeft + i * slotW + (slotW - barW) / 2;
+          const barH = Math.max((d.count / niceMax) * chartH, d.count > 0 ? 4 : 0);
+          const y = paddingTop + chartH - barH;
+          const showLabel = i === 0 || i === days - 1 || i % Math.floor(days / 4) === 0;
+
+          return (
+            <g key={i}>
+              {/* Bar background (empty slot) */}
+              <rect
+                x={x}
+                y={paddingTop}
+                width={barW}
+                height={chartH}
+                rx={4}
+                fill="currentColor"
+                fillOpacity={0.05}
+              />
+              {/* Actual bar */}
+              {d.count > 0 && (
+                <>
+                  <rect
+                    x={x}
+                    y={y}
+                    width={barW}
+                    height={barH}
+                    rx={4}
+                    fill={accentColor}
+                    fillOpacity={0.9}
+                  />
+                  {/* Highlight top */}
+                  <rect
+                    x={x}
+                    y={y}
+                    width={barW}
+                    height={Math.min(4, barH)}
+                    rx={4}
+                    fill={accentColor}
+                    fillOpacity={0.8}
+                  />
+                  {/* Count label */}
+                  <text
+                    x={x + barW / 2}
+                    y={y - 5}
+                    textAnchor="middle"
+                    fontSize={10}
+                    fontFamily={mono}
+                    fill="currentColor"
+                    fillOpacity={0.8}
+                    fontWeight={600}
+                    letterSpacing={-0.5}
+                  >
+                    {d.count}
+                  </text>
+                </>
+              )}
+              {/* Date label */}
+              {showLabel && (
+                <text
+                  x={x + barW / 2}
+                  y={paddingTop + chartH + paddingBottom - 6}
+                  textAnchor="middle"
+                  fontSize={9}
+                  fontFamily={mono}
+                  fill="currentColor"
+                  fillOpacity={0.38}
+                  letterSpacing={-0.3}
+                >
+                  {d.label}
+                </text>
+              )}
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
+
 export default function AnalyticsPage() {
-  const { usage, competitors, analyses } = useAppStore();
+  const { usage, competitors, analyses, generationDates, analysisDates } = useAppStore();
   const variations = useGenerateStore((s) => s.variations);
 
   const completedVariations = variations.filter(
@@ -87,6 +236,43 @@ export default function AnalyticsPage() {
             </CardContent>
           </Card>
         ))}
+      </div>
+
+      {/* Charts row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Ads Created Chart */}
+        <Card>
+          <CardHeader>
+            <h3 className="text-sm font-semibold flex items-center gap-2">
+              <BarChart3 className="h-4 w-4 text-primary" />
+              Ads Created — Last 14 Days
+            </h3>
+          </CardHeader>
+          <CardContent>
+            {generationDates.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No ads generated yet.</p>
+            ) : (
+              <AdsCreatedChart generatedAds={generationDates.map((d) => ({ createdAt: d }))} />
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Ads Analyzed Chart */}
+        <Card>
+          <CardHeader>
+            <h3 className="text-sm font-semibold flex items-center gap-2">
+              <Brain className="h-4 w-4 text-purple-400" />
+              Ads Analyzed — Last 14 Days
+            </h3>
+          </CardHeader>
+          <CardContent>
+            {analysisDates.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No ads analyzed yet.</p>
+            ) : (
+              <AdsCreatedChart generatedAds={analysisDates.map((d) => ({ createdAt: d }))} accentColor="#a855f7" />
+            )}
+          </CardContent>
+        </Card>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

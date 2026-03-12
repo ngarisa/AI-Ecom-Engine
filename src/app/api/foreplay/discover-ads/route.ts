@@ -26,6 +26,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(result);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
+    console.error("Error in discover-ads:", message);
+    console.error("Full error:", error);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

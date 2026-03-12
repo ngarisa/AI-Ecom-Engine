@@ -19,7 +19,7 @@ interface AnalysisModalProps {
 }
 
 export function AnalysisModal({ ad, onClose, onDuplicate }: AnalysisModalProps) {
-  const { brandProfile, analyses, setAnalysis, incrementUsage } = useAppStore();
+  const { brandProfile, analyses, setAnalysis, incrementUsage, addAnalysisDate } = useAppStore();
   const existingAnalysis = analyses[ad.id];
   const [analysis, setLocalAnalysis] = useState<AdAnalysis | null>(existingAnalysis || null);
   const [loading, setLoading] = useState(false);
@@ -52,6 +52,7 @@ export function AnalysisModal({ ad, onClose, onDuplicate }: AnalysisModalProps) 
       setLocalAnalysis(data.data);
       setAnalysis(ad.id, data.data);
       incrementUsage("adsAnalyzed");
+      addAnalysisDate(new Date().toISOString());
     } catch (err) {
       setError(err instanceof Error ? err.message : "Analysis failed");
     } finally {

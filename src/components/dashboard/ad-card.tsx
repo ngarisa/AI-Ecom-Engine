@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { getWinnerTier, getWinnerTierColor, getWinnerTierLabel } from "@/types";
 import type { ForeplayAd } from "@/types/foreplay";
 import { formatDate } from "@/lib/utils";
 import { Sparkles, Search, ExternalLink, Clock } from "lucide-react";
@@ -14,11 +13,11 @@ interface AdCardProps {
   analysisScore?: number;
   onAnalyze: (ad: ForeplayAd) => void;
   onDuplicate: (ad: ForeplayAd) => void;
+  compact?: boolean;
 }
 
-export function AdCard({ ad, analysisScore, onAnalyze, onDuplicate }: AdCardProps) {
+export function AdCard({ ad, analysisScore, onAnalyze, onDuplicate, compact }: AdCardProps) {
   const days = ad.running_duration?.days ?? 0;
-  const tier = getWinnerTier(days);
   const imageUrl = ad.image || ad.thumbnail;
 
   return (
@@ -42,24 +41,36 @@ export function AdCard({ ad, analysisScore, onAnalyze, onDuplicate }: AdCardProp
 
         {/* Overlay buttons */}
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-          <Button size="sm" onClick={() => onAnalyze(ad)}>
-            <Search className="h-3.5 w-3.5 mr-1.5" />
-            Analyze
-          </Button>
-          <Button size="sm" variant="outline" onClick={() => onDuplicate(ad)} className="bg-black/50">
-            <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-            Duplicate
-          </Button>
+          {compact ? (
+            <>
+              <button
+                onClick={() => onAnalyze(ad)}
+                className="p-1.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                title="Analyze"
+              >
+                <Search className="h-3 w-3" />
+              </button>
+              <button
+                onClick={() => onDuplicate(ad)}
+                className="p-1.5 rounded-lg bg-black/60 border border-white/20 text-white hover:bg-black/80 transition-colors"
+                title="Duplicate"
+              >
+                <Sparkles className="h-3 w-3" />
+              </button>
+            </>
+          ) : (
+            <>
+              <Button size="sm" onClick={() => onAnalyze(ad)}>
+                <Search className="h-3.5 w-3.5 mr-1.5" />
+                Analyze
+              </Button>
+              <Button size="sm" variant="outline" onClick={() => onDuplicate(ad)} className="bg-black/50">
+                <Sparkles className="h-3.5 w-3.5 mr-1.5" />
+                Duplicate
+              </Button>
+            </>
+          )}
         </div>
-
-        {/* Winner badge */}
-        {tier && (
-          <div className="absolute top-2 left-2">
-            <Badge className={getWinnerTierColor(tier)}>
-              {getWinnerTierLabel(tier)}
-            </Badge>
-          </div>
-        )}
 
         {/* Score badge */}
         {analysisScore !== undefined && (

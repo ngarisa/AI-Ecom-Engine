@@ -50,6 +50,7 @@ export interface Competitor {
   notes: string;
   trackingSince: string;
   adCount: number;
+  priority?: 1 | 2 | 3; // 1 = High, 2 = Medium, 3 = Low
 }
 
 export interface AdAnalysis {

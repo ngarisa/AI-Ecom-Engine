@@ -16,8 +16,19 @@
   --color-ring: #a855f7;
 }
 
+html.light {
+  --color-background: #ffffff;
+  --color-foreground: #09090b;
+  --color-card: #f4f4f5;
+  --color-card-foreground: #09090b;
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #71717a;
+  --color-border: #e4e4e7;
+  --color-input: #f4f4f5;
+}
+
 body {
-  background-color: #000000;
+  background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: system-ui, -apple-system, sans-serif;
 }

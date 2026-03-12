@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -226,9 +227,12 @@ function AddCompetitorModal({ onClose }: { onClose: () => void }) {
 }
 
 export default function KnowledgeBasePage() {
-  const { brandProfile, setBrandProfile, competitors, removeCompetitor } = useAppStore();
+  const { brandProfile, setBrandProfile, competitors, removeCompetitor, updateCompetitor } = useAppStore();
   const [showAddCompetitor, setShowAddCompetitor] = useState(false);
-  const [activeTab, setActiveTab] = useState<"brand" | "competitors">("brand");
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState<"brand" | "competitors">(
+    searchParams.get("tab") === "competitors" ? "competitors" : "brand"
+  );
 
   return (
     <div className="space-y-6">
@@ -497,47 +501,84 @@ export default function KnowledgeBasePage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {competitors.map((comp) => (
-                <Card key={comp.id} className="group">
-                  <CardContent className="p-4">
-                    <div className="flex items-start gap-3">
-                      {comp.avatar && (
-                        <Image
-                          src={comp.avatar}
-                          alt=""
-                          width={40}
-                          height={40}
-                          className="rounded-full shrink-0"
-                          unoptimized
-                        />
-                      )}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <h4 className="font-medium truncate">{comp.name}</h4>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => removeCompetitor(comp.id)}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                          >
-                            <Trash2 className="h-3.5 w-3.5 text-destructive" />
-                          </Button>
+              {competitors.map((comp) => {
+                  const priority = comp.priority ?? 2;
+                  const priorityConfig = {
+                    1: { label: "High", color: "text-emerald-400", bg: "bg-emerald-400/10 border-emerald-400/20" },
+                    2: { label: "Medium", color: "text-yellow-400", bg: "bg-yellow-400/10 border-yellow-400/20" },
+                    3: { label: "Low", color: "text-zinc-400", bg: "bg-zinc-400/10 border-zinc-400/20" },
+                  }[priority];
+
+                  return (
+                    <Card key={comp.id} className="group">
+                      <CardContent className="p-4">
+                        <div className="flex items-start gap-3">
+                          {comp.avatar && (
+                            <Image
+                              src={comp.avatar}
+                              alt=""
+                              width={40}
+                              height={40}
+                              className="rounded-full shrink-0"
+                              unoptimized
+                            />
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <h4 className="font-medium truncate">{comp.name}</h4>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => removeCompetitor(comp.id)}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity"
+                              >
+                                <Trash2 className="h-3.5 w-3.5 text-destructive" />
+                              </Button>
+                            </div>
+                            {comp.url && (
+                              <p className="text-xs text-muted-foreground truncate">{comp.url}</p>
+                            )}
+                            {comp.notes && (
+                              <p className="text-xs text-muted-foreground mt-1">{comp.notes}</p>
+                            )}
+                            <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground">
+                              <span>{comp.adCount} ads</span>
+                              <span>Tracking since {new Date(comp.trackingSince).toLocaleDateString()}</span>
+                            </div>
+
+                            {/* Priority selector */}
+                            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-border">
+                              <span className="text-xs text-muted-foreground">Priority:</span>
+                              <div className="flex gap-1">
+                                {([1, 2, 3] as const).map((p) => {
+                                  const cfg = {
+                                    1: { label: "High", color: "text-emerald-400", activeBg: "bg-emerald-400/15 border-emerald-400/30" },
+                                    2: { label: "Med", color: "text-yellow-400", activeBg: "bg-yellow-400/15 border-yellow-400/30" },
+                                    3: { label: "Low", color: "text-zinc-400", activeBg: "bg-zinc-400/15 border-zinc-400/30" },
+                                  }[p];
+                                  const isActive = priority === p;
+                                  return (
+                                    <button
+                                      key={p}
+                                      onClick={() => updateCompetitor(comp.id, { priority: p })}
+                                      className={`px-2 py-0.5 rounded text-[11px] font-medium border transition-colors ${
+                                        isActive
+                                          ? `${cfg.activeBg} ${cfg.color}`
+                                          : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted"
+                                      }`}
+                                    >
+                                      {cfg.label}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        {comp.url && (
-                          <p className="text-xs text-muted-foreground truncate">{comp.url}</p>
-                        )}
-                        {comp.notes && (
-                          <p className="text-xs text-muted-foreground mt-1">{comp.notes}</p>
-                        )}
-                        <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground">
-                          <span>{comp.adCount} ads</span>
-                          <span>Tracking since {new Date(comp.trackingSince).toLocaleDateString()}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
             </div>
           )}
 

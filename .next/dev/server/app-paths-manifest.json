@@ -1,5 +1,9 @@
 {
   "/analytics/page": "app/analytics/page.js",
+  "/api/analyze/route": "app/api/analyze/route.js",
+  "/api/foreplay/brand-ads/route": "app/api/foreplay/brand-ads/route.js",
+  "/api/foreplay/discover-brands/route": "app/api/foreplay/discover-brands/route.js",
+  "/api/generate/route": "app/api/generate/route.js",
   "/discover/page": "app/discover/page.js",
   "/errors/page": "app/errors/page.js",
   "/generate/page": "app/generate/page.js",

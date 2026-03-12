@@ -235,6 +235,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/input.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/textarea.tsx [app-client] (ecmascript)");
@@ -256,6 +257,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$imag
 ;
 var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -293,7 +295,7 @@ function TagInput({ tags, onTagsChange, placeholder }) {
                         className: "flex-1"
                     }, void 0, false, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 49,
+                        lineNumber: 50,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -305,18 +307,18 @@ function TagInput({ tags, onTagsChange, placeholder }) {
                             className: "h-3 w-3"
                         }, void 0, false, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 57,
+                            lineNumber: 58,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 56,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 48,
+                lineNumber: 49,
                 columnNumber: 7
             }, this),
             tags.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -332,29 +334,29 @@ function TagInput({ tags, onTagsChange, placeholder }) {
                                     className: "h-2.5 w-2.5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 66,
+                                    lineNumber: 67,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 65,
+                                lineNumber: 66,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, tag, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 63,
+                        lineNumber: 64,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 61,
+                lineNumber: 62,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/knowledge-base/page.tsx",
-        lineNumber: 47,
+        lineNumber: 48,
         columnNumber: 5
     }, this);
 }
@@ -388,7 +390,7 @@ function FileUpload({ label, assets, profileField, assetType }) {
                 children: label
             }, void 0, false, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 113,
+                lineNumber: 114,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -405,7 +407,7 @@ function FileUpload({ label, assets, profileField, assetType }) {
                                     unoptimized: true
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 117,
+                                    lineNumber: 118,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -415,18 +417,18 @@ function FileUpload({ label, assets, profileField, assetType }) {
                                         className: "h-3.5 w-3.5 text-destructive"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 122,
+                                        lineNumber: 123,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 118,
+                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, asset.id, true, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 116,
+                            lineNumber: 117,
                             columnNumber: 11
                         }, this)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -436,7 +438,7 @@ function FileUpload({ label, assets, profileField, assetType }) {
                                 className: "h-4 w-4 text-muted-foreground"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 127,
+                                lineNumber: 128,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -447,25 +449,25 @@ function FileUpload({ label, assets, profileField, assetType }) {
                                 className: "hidden"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 128,
+                                lineNumber: 129,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 126,
+                        lineNumber: 127,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 114,
+                lineNumber: 115,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/knowledge-base/page.tsx",
-        lineNumber: 112,
+        lineNumber: 113,
         columnNumber: 5
     }, this);
 }
@@ -528,7 +530,7 @@ function AddCompetitorModal({ onClose }) {
                             children: "Add Competitor"
                         }, void 0, false, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 179,
+                            lineNumber: 180,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -539,18 +541,18 @@ function AddCompetitorModal({ onClose }) {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 180,
+                                lineNumber: 181,
                                 columnNumber: 63
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 180,
+                            lineNumber: 181,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                    lineNumber: 178,
+                    lineNumber: 179,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -566,7 +568,7 @@ function AddCompetitorModal({ onClose }) {
                                     onKeyDown: (e)=>e.key === "Enter" && searchBrands()
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 184,
+                                    lineNumber: 185,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -576,24 +578,24 @@ function AddCompetitorModal({ onClose }) {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 191,
+                                        lineNumber: 192,
                                         columnNumber: 26
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"], {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 191,
+                                        lineNumber: 192,
                                         columnNumber: 60
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 190,
+                                    lineNumber: 191,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 183,
+                            lineNumber: 184,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -602,7 +604,7 @@ function AddCompetitorModal({ onClose }) {
                             onChange: (e)=>setNotes(e.target.value)
                         }, void 0, false, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 195,
+                            lineNumber: 196,
                             columnNumber: 11
                         }, this),
                         error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -610,7 +612,7 @@ function AddCompetitorModal({ onClose }) {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 201,
+                            lineNumber: 202,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -628,7 +630,7 @@ function AddCompetitorModal({ onClose }) {
                                             unoptimized: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 211,
+                                            lineNumber: 212,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -639,7 +641,7 @@ function AddCompetitorModal({ onClose }) {
                                                     children: brand.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                    lineNumber: 214,
+                                                    lineNumber: 215,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -647,13 +649,13 @@ function AddCompetitorModal({ onClose }) {
                                                     children: brand.domain
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                    lineNumber: 215,
+                                                    lineNumber: 216,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 213,
+                                            lineNumber: 214,
                                             columnNumber: 17
                                         }, this),
                                         brand.niche && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -662,7 +664,7 @@ function AddCompetitorModal({ onClose }) {
                                             children: brand.niche
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 217,
+                                            lineNumber: 218,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -673,35 +675,35 @@ function AddCompetitorModal({ onClose }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 218,
+                                            lineNumber: 219,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, brand.id, true, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 205,
+                                    lineNumber: 206,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                            lineNumber: 203,
+                            lineNumber: 204,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                    lineNumber: 182,
+                    lineNumber: 183,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/knowledge-base/page.tsx",
-            lineNumber: 177,
+            lineNumber: 178,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/knowledge-base/page.tsx",
-        lineNumber: 176,
+        lineNumber: 177,
         columnNumber: 5
     }, this);
 }
@@ -713,9 +715,10 @@ _s2(AddCompetitorModal, "pUsH34b6maadFPhJZazyXYds4BY=", false, function() {
 _c2 = AddCompetitorModal;
 function KnowledgeBasePage() {
     _s3();
-    const { brandProfile, setBrandProfile, competitors, removeCompetitor } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppStore"])();
+    const { brandProfile, setBrandProfile, competitors, removeCompetitor, updateCompetitor } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppStore"])();
     const [showAddCompetitor, setShowAddCompetitor] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("brand");
+    const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"])();
+    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(searchParams.get("tab") === "competitors" ? "competitors" : "brand");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-6",
         children: [
@@ -728,14 +731,14 @@ function KnowledgeBasePage() {
                                 className: "h-6 w-6 text-primary"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 237,
+                                lineNumber: 241,
                                 columnNumber: 11
                             }, this),
                             "Knowledge Base"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 236,
+                        lineNumber: 240,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -743,13 +746,13 @@ function KnowledgeBasePage() {
                         children: "Teach the engine about your brand and competitors."
                     }, void 0, false, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 240,
+                        lineNumber: 244,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 235,
+                lineNumber: 239,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -761,7 +764,7 @@ function KnowledgeBasePage() {
                         children: "Brand Profile"
                     }, void 0, false, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 247,
+                        lineNumber: 251,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -774,13 +777,13 @@ function KnowledgeBasePage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 257,
+                        lineNumber: 261,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 246,
+                lineNumber: 250,
                 columnNumber: 7
             }, this),
             activeTab === "brand" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -796,19 +799,19 @@ function KnowledgeBasePage() {
                                             className: "h-4 w-4 text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 275,
+                                            lineNumber: 279,
                                             columnNumber: 17
                                         }, this),
                                         "Brand Identity"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 274,
+                                    lineNumber: 278,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 273,
+                                lineNumber: 277,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -822,7 +825,7 @@ function KnowledgeBasePage() {
                                                 children: "Brand Name"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 281,
+                                                lineNumber: 285,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -833,13 +836,13 @@ function KnowledgeBasePage() {
                                                 placeholder: "Your Brand"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 282,
+                                                lineNumber: 286,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 280,
+                                        lineNumber: 284,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -850,7 +853,7 @@ function KnowledgeBasePage() {
                                                 children: "Website URL"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 289,
+                                                lineNumber: 293,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -861,13 +864,13 @@ function KnowledgeBasePage() {
                                                 placeholder: "https://yourbrand.com"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 290,
+                                                lineNumber: 294,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 288,
+                                        lineNumber: 292,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -878,7 +881,7 @@ function KnowledgeBasePage() {
                                                 children: "Brand Description"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 297,
+                                                lineNumber: 301,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -890,13 +893,13 @@ function KnowledgeBasePage() {
                                                 rows: 4
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 298,
+                                                lineNumber: 302,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 296,
+                                        lineNumber: 300,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -907,7 +910,7 @@ function KnowledgeBasePage() {
                                                 children: "Brand Voice"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 306,
+                                                lineNumber: 310,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -918,13 +921,13 @@ function KnowledgeBasePage() {
                                                 placeholder: "e.g., playful, bold, direct"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 307,
+                                                lineNumber: 311,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 305,
+                                        lineNumber: 309,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -935,7 +938,7 @@ function KnowledgeBasePage() {
                                                 children: "Price Range"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 314,
+                                                lineNumber: 318,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -946,25 +949,25 @@ function KnowledgeBasePage() {
                                                 placeholder: "e.g., $30-$80 per product"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 315,
+                                                lineNumber: 319,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 313,
+                                        lineNumber: 317,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 279,
+                                lineNumber: 283,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 272,
+                        lineNumber: 276,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -977,19 +980,19 @@ function KnowledgeBasePage() {
                                             className: "h-4 w-4 text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 332,
                                             columnNumber: 17
                                         }, this),
                                         "Target Audience & Niche"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 327,
+                                    lineNumber: 331,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 326,
+                                lineNumber: 330,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1003,7 +1006,7 @@ function KnowledgeBasePage() {
                                                 children: "Target Audience"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 338,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1015,13 +1018,13 @@ function KnowledgeBasePage() {
                                                 rows: 3
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 335,
+                                                lineNumber: 339,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 333,
+                                        lineNumber: 337,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1032,7 +1035,7 @@ function KnowledgeBasePage() {
                                                 children: "Primary Niche"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 343,
+                                                lineNumber: 347,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1043,13 +1046,13 @@ function KnowledgeBasePage() {
                                                 placeholder: "e.g., Skincare, Fitness, Fashion"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 344,
+                                                lineNumber: 348,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 342,
+                                        lineNumber: 346,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1060,7 +1063,7 @@ function KnowledgeBasePage() {
                                                 children: "Sub-Niches"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 351,
+                                                lineNumber: 355,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TagInput, {
@@ -1071,13 +1074,13 @@ function KnowledgeBasePage() {
                                                 placeholder: "Add a sub-niche..."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 352,
+                                                lineNumber: 356,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 350,
+                                        lineNumber: 354,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1088,7 +1091,7 @@ function KnowledgeBasePage() {
                                                 children: "Unique Selling Points"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 359,
+                                                lineNumber: 363,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TagInput, {
@@ -1099,13 +1102,13 @@ function KnowledgeBasePage() {
                                                 placeholder: "Add a USP..."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 360,
+                                                lineNumber: 364,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 358,
+                                        lineNumber: 362,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1116,7 +1119,7 @@ function KnowledgeBasePage() {
                                                 children: "Product Categories"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 367,
+                                                lineNumber: 371,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TagInput, {
@@ -1127,25 +1130,25 @@ function KnowledgeBasePage() {
                                                 placeholder: "Add a category..."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 368,
+                                                lineNumber: 372,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 366,
+                                        lineNumber: 370,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 332,
+                                lineNumber: 336,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 325,
+                        lineNumber: 329,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1158,19 +1161,19 @@ function KnowledgeBasePage() {
                                             className: "h-4 w-4 text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 381,
+                                            lineNumber: 385,
                                             columnNumber: 17
                                         }, this),
                                         "Visual Identity"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 380,
+                                    lineNumber: 384,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 379,
+                                lineNumber: 383,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1187,7 +1190,7 @@ function KnowledgeBasePage() {
                                                         children: "Primary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 388,
+                                                        lineNumber: 392,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1205,7 +1208,7 @@ function KnowledgeBasePage() {
                                                                 className: "w-8 h-8 rounded cursor-pointer border-0"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 390,
+                                                                lineNumber: 394,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1213,19 +1216,19 @@ function KnowledgeBasePage() {
                                                                 children: brandProfile.brandColors.primary
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 400,
+                                                                lineNumber: 404,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 389,
+                                                        lineNumber: 393,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 387,
+                                                lineNumber: 391,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1236,7 +1239,7 @@ function KnowledgeBasePage() {
                                                         children: "Secondary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 404,
+                                                        lineNumber: 408,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1254,7 +1257,7 @@ function KnowledgeBasePage() {
                                                                 className: "w-8 h-8 rounded cursor-pointer border-0"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 406,
+                                                                lineNumber: 410,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1262,19 +1265,19 @@ function KnowledgeBasePage() {
                                                                 children: brandProfile.brandColors.secondary
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 416,
+                                                                lineNumber: 420,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 405,
+                                                        lineNumber: 409,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 403,
+                                                lineNumber: 407,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1285,7 +1288,7 @@ function KnowledgeBasePage() {
                                                         children: "Accent"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 420,
+                                                        lineNumber: 424,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1303,7 +1306,7 @@ function KnowledgeBasePage() {
                                                                 className: "w-8 h-8 rounded cursor-pointer border-0"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 422,
+                                                                lineNumber: 426,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1311,25 +1314,25 @@ function KnowledgeBasePage() {
                                                                 children: brandProfile.brandColors.accent
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 432,
+                                                                lineNumber: 436,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 421,
+                                                        lineNumber: 425,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 419,
+                                                lineNumber: 423,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 386,
+                                        lineNumber: 390,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1343,7 +1346,7 @@ function KnowledgeBasePage() {
                                                         children: "Heading Font"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 438,
+                                                        lineNumber: 442,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1357,13 +1360,13 @@ function KnowledgeBasePage() {
                                                         placeholder: "e.g., Montserrat Bold"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 439,
+                                                        lineNumber: 443,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 437,
+                                                lineNumber: 441,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1374,7 +1377,7 @@ function KnowledgeBasePage() {
                                                         children: "Body Font"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 448,
+                                                        lineNumber: 452,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1388,31 +1391,31 @@ function KnowledgeBasePage() {
                                                         placeholder: "e.g., Inter Regular"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 449,
+                                                        lineNumber: 453,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 447,
+                                                lineNumber: 451,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 436,
+                                        lineNumber: 440,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 385,
+                                lineNumber: 389,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 378,
+                        lineNumber: 382,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1425,19 +1428,19 @@ function KnowledgeBasePage() {
                                             className: "h-4 w-4 text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                            lineNumber: 465,
+                                            lineNumber: 469,
                                             columnNumber: 17
                                         }, this),
                                         "Brand Assets & Exclusions"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 464,
+                                    lineNumber: 468,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 463,
+                                lineNumber: 467,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1450,7 +1453,7 @@ function KnowledgeBasePage() {
                                         assetType: "logo"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 470,
+                                        lineNumber: 474,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FileUpload, {
@@ -1460,7 +1463,7 @@ function KnowledgeBasePage() {
                                         assetType: "example_ad"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 471,
+                                        lineNumber: 475,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FileUpload, {
@@ -1470,7 +1473,7 @@ function KnowledgeBasePage() {
                                         assetType: "product_image"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 472,
+                                        lineNumber: 476,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1481,7 +1484,7 @@ function KnowledgeBasePage() {
                                                 children: "Excluded Themes"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 474,
+                                                lineNumber: 478,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TagInput, {
@@ -1492,31 +1495,31 @@ function KnowledgeBasePage() {
                                                 placeholder: "e.g., fear-based, medical claims"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 475,
+                                                lineNumber: 479,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 473,
+                                        lineNumber: 477,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 469,
+                                lineNumber: 473,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 462,
+                        lineNumber: 466,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 270,
+                lineNumber: 274,
                 columnNumber: 9
             }, this),
             activeTab === "competitors" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1529,14 +1532,14 @@ function KnowledgeBasePage() {
                                 className: "h-4 w-4 mr-2"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 489,
+                                lineNumber: 493,
                                 columnNumber: 13
                             }, this),
                             "Add Competitor"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 488,
+                        lineNumber: 492,
                         columnNumber: 11
                     }, this),
                     competitors.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1546,24 +1549,43 @@ function KnowledgeBasePage() {
                                 className: "h-10 w-10 mx-auto mb-3 opacity-30"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 495,
+                                lineNumber: 499,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: "No competitors tracked yet. Add your first competitor to start monitoring their ads."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 496,
+                                lineNumber: 500,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 494,
+                        lineNumber: 498,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
-                        children: competitors.map((comp)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                        children: competitors.map((comp)=>{
+                            const priority = comp.priority ?? 2;
+                            const priorityConfig = {
+                                1: {
+                                    label: "High",
+                                    color: "text-emerald-400",
+                                    bg: "bg-emerald-400/10 border-emerald-400/20"
+                                },
+                                2: {
+                                    label: "Medium",
+                                    color: "text-yellow-400",
+                                    bg: "bg-yellow-400/10 border-yellow-400/20"
+                                },
+                                3: {
+                                    label: "Low",
+                                    color: "text-zinc-400",
+                                    bg: "bg-zinc-400/10 border-zinc-400/20"
+                                }
+                            }[priority];
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                 className: "group",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                     className: "p-4",
@@ -1579,8 +1601,8 @@ function KnowledgeBasePage() {
                                                 unoptimized: true
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 505,
-                                                columnNumber: 25
+                                                lineNumber: 517,
+                                                columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex-1 min-w-0",
@@ -1593,8 +1615,8 @@ function KnowledgeBasePage() {
                                                                 children: comp.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 516,
-                                                                columnNumber: 27
+                                                                lineNumber: 528,
+                                                                columnNumber: 31
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                                                 variant: "ghost",
@@ -1605,35 +1627,35 @@ function KnowledgeBasePage() {
                                                                     className: "h-3.5 w-3.5 text-destructive"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                    lineNumber: 523,
-                                                                    columnNumber: 29
+                                                                    lineNumber: 535,
+                                                                    columnNumber: 33
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 517,
-                                                                columnNumber: 27
+                                                                lineNumber: 529,
+                                                                columnNumber: 31
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 515,
-                                                        columnNumber: 25
+                                                        lineNumber: 527,
+                                                        columnNumber: 29
                                                     }, this),
                                                     comp.url && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-xs text-muted-foreground truncate",
                                                         children: comp.url
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 527,
-                                                        columnNumber: 27
+                                                        lineNumber: 539,
+                                                        columnNumber: 31
                                                     }, this),
                                                     comp.notes && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-xs text-muted-foreground mt-1",
                                                         children: comp.notes
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 530,
-                                                        columnNumber: 27
+                                                        lineNumber: 542,
+                                                        columnNumber: 31
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flex items-center gap-3 mt-2 text-xs text-muted-foreground",
@@ -1645,8 +1667,8 @@ function KnowledgeBasePage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 533,
-                                                                columnNumber: 27
+                                                                lineNumber: 545,
+                                                                columnNumber: 31
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 children: [
@@ -1655,65 +1677,126 @@ function KnowledgeBasePage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                                lineNumber: 534,
-                                                                columnNumber: 27
+                                                                lineNumber: 546,
+                                                                columnNumber: 31
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                        lineNumber: 532,
-                                                        columnNumber: 25
+                                                        lineNumber: 544,
+                                                        columnNumber: 29
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 mt-3 pt-3 border-t border-border",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-xs text-muted-foreground",
+                                                                children: "Priority:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/knowledge-base/page.tsx",
+                                                                lineNumber: 551,
+                                                                columnNumber: 31
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex gap-1",
+                                                                children: [
+                                                                    1,
+                                                                    2,
+                                                                    3
+                                                                ].map((p)=>{
+                                                                    const cfg = {
+                                                                        1: {
+                                                                            label: "High",
+                                                                            color: "text-emerald-400",
+                                                                            activeBg: "bg-emerald-400/15 border-emerald-400/30"
+                                                                        },
+                                                                        2: {
+                                                                            label: "Med",
+                                                                            color: "text-yellow-400",
+                                                                            activeBg: "bg-yellow-400/15 border-yellow-400/30"
+                                                                        },
+                                                                        3: {
+                                                                            label: "Low",
+                                                                            color: "text-zinc-400",
+                                                                            activeBg: "bg-zinc-400/15 border-zinc-400/30"
+                                                                        }
+                                                                    }[p];
+                                                                    const isActive = priority === p;
+                                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                        onClick: ()=>updateCompetitor(comp.id, {
+                                                                                priority: p
+                                                                            }),
+                                                                        className: `px-2 py-0.5 rounded text-[11px] font-medium border transition-colors ${isActive ? `${cfg.activeBg} ${cfg.color}` : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted"}`,
+                                                                        children: cfg.label
+                                                                    }, p, false, {
+                                                                        fileName: "[project]/src/app/knowledge-base/page.tsx",
+                                                                        lineNumber: 561,
+                                                                        columnNumber: 37
+                                                                    }, this);
+                                                                })
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/knowledge-base/page.tsx",
+                                                                lineNumber: 552,
+                                                                columnNumber: 31
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/knowledge-base/page.tsx",
+                                                        lineNumber: 550,
+                                                        columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                                lineNumber: 514,
-                                                columnNumber: 23
+                                                lineNumber: 526,
+                                                columnNumber: 27
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                        lineNumber: 503,
-                                        columnNumber: 21
+                                        lineNumber: 515,
+                                        columnNumber: 25
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                    lineNumber: 502,
-                                    columnNumber: 19
+                                    lineNumber: 514,
+                                    columnNumber: 23
                                 }, this)
                             }, comp.id, false, {
                                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                                lineNumber: 501,
-                                columnNumber: 17
-                            }, this))
+                                lineNumber: 513,
+                                columnNumber: 21
+                            }, this);
+                        })
                     }, void 0, false, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 499,
+                        lineNumber: 503,
                         columnNumber: 13
                     }, this),
                     showAddCompetitor && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AddCompetitorModal, {
                         onClose: ()=>setShowAddCompetitor(false)
                     }, void 0, false, {
                         fileName: "[project]/src/app/knowledge-base/page.tsx",
-                        lineNumber: 545,
+                        lineNumber: 586,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/knowledge-base/page.tsx",
-                lineNumber: 487,
+                lineNumber: 491,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/knowledge-base/page.tsx",
-        lineNumber: 234,
+        lineNumber: 238,
         columnNumber: 5
     }, this);
 }
-_s3(KnowledgeBasePage, "bVTIcK7AT8ZemAo4lWa+xyO+wa0=", false, function() {
+_s3(KnowledgeBasePage, "Kutv0N+Cs94zfA3/eXfPgLYmALg=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppStore"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppStore"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"]
     ];
 });
 _c3 = KnowledgeBasePage;

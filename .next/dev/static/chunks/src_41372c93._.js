@@ -625,7 +625,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 function GeneratePage() {
     _s();
-    const { brandProfile, setAnalysis, incrementUsage, addErrorLog } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppStore"])();
+    const { brandProfile, setAnalysis, incrementUsage, addErrorLog, addGenerationDate, addAnalysisDate } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppStore"])();
     // All generate state lives in the dedicated store (survives navigation)
     const { step, setStep, selectedAd, setSelectedAd, localAnalysis, setLocalAnalysis, analyzing, setAnalyzing, generating, setGenerating, error, setError, aspectRatio, setAspectRatio, variationCount, setVariationCount, overrides, setOverrides, variations, setVariations, editedPrompt, setEditedPrompt, promptEditorOpen, setPromptEditorOpen } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$generate$2d$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGenerateStore"])();
     const openaiKey = ("TURBOPACK compile-time truthy", 1) ? localStorage.getItem("openai_api_key") || "" : "TURBOPACK unreachable";
@@ -686,6 +686,7 @@ function GeneratePage() {
             setLocalAnalysis(data.data);
             setAnalysis(selectedAd.id, data.data);
             incrementUsage("adsAnalyzed");
+            addAnalysisDate(new Date().toISOString());
             setStep("configure");
         } catch (err) {
             setError(err instanceof Error ? err.message : "Analysis failed");
@@ -795,6 +796,7 @@ function GeneratePage() {
                 ]);
                 incrementUsage("adsGenerated");
                 incrementUsage("generationCostUsd", 0.134);
+                addGenerationDate(new Date().toISOString());
             } catch (err) {
                 newVariations[i] = {
                     ...newVariations[i],
@@ -830,14 +832,14 @@ function GeneratePage() {
                                 className: "h-6 w-6 text-primary"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 232,
+                                lineNumber: 234,
                                 columnNumber: 11
                             }, this),
                             "Generate Ad"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 231,
+                        lineNumber: 233,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -845,13 +847,13 @@ function GeneratePage() {
                         children: "Duplicate a winning ad with your brand identity."
                     }, void 0, false, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 235,
+                        lineNumber: 237,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/generate/page.tsx",
-                lineNumber: 230,
+                lineNumber: 232,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -879,7 +881,7 @@ function GeneratePage() {
                                 className: "h-3 w-3 text-muted-foreground"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 248,
+                                lineNumber: 250,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -887,19 +889,19 @@ function GeneratePage() {
                                 children: s.charAt(0).toUpperCase() + s.slice(1)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 249,
+                                lineNumber: 251,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, s, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 247,
+                        lineNumber: 249,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/app/generate/page.tsx",
-                lineNumber: 241,
+                lineNumber: 243,
                 columnNumber: 7
             }, this),
             step === "select" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -911,7 +913,7 @@ function GeneratePage() {
                             children: "Select a competitor ad from the Ad Feed or Discover page, then come back here to generate."
                         }, void 0, false, {
                             fileName: "[project]/src/app/generate/page.tsx",
-                            lineNumber: 271,
+                            lineNumber: 273,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -923,7 +925,7 @@ function GeneratePage() {
                                     children: "Go to Ad Feed"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 275,
+                                    lineNumber: 277,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -932,13 +934,13 @@ function GeneratePage() {
                                     children: "Go to Discover"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 278,
+                                    lineNumber: 280,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/generate/page.tsx",
-                            lineNumber: 274,
+                            lineNumber: 276,
                             columnNumber: 13
                         }, this),
                         selectedAd && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -949,7 +951,7 @@ function GeneratePage() {
                                     children: "Selected Ad:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 284,
+                                    lineNumber: 286,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -964,17 +966,17 @@ function GeneratePage() {
                                             unoptimized: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 288,
+                                            lineNumber: 290,
                                             columnNumber: 23
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 287,
+                                        lineNumber: 289,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 285,
+                                    lineNumber: 287,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -985,7 +987,7 @@ function GeneratePage() {
                                             children: "Analyze First"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 293,
+                                            lineNumber: 295,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -996,37 +998,37 @@ function GeneratePage() {
                                                     className: "h-4 w-4 mr-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/generate/page.tsx",
-                                                    lineNumber: 297,
+                                                    lineNumber: 299,
                                                     columnNumber: 21
                                                 }, this),
                                                 "Skip to Generate"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 296,
+                                            lineNumber: 298,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 292,
+                                    lineNumber: 294,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/generate/page.tsx",
-                            lineNumber: 283,
+                            lineNumber: 285,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/generate/page.tsx",
-                    lineNumber: 270,
+                    lineNumber: 272,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/generate/page.tsx",
-                lineNumber: 269,
+                lineNumber: 271,
                 columnNumber: 9
             }, this),
             step === "analyze" && selectedAd && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1044,12 +1046,12 @@ function GeneratePage() {
                                     unoptimized: true
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 313,
+                                    lineNumber: 315,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 312,
+                                lineNumber: 314,
                                 columnNumber: 15
                             }, this),
                             selectedAd.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1057,13 +1059,13 @@ function GeneratePage() {
                                 children: selectedAd.description
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 317,
+                                lineNumber: 319,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 310,
+                        lineNumber: 312,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1075,7 +1077,7 @@ function GeneratePage() {
                                     children: "Analyze This Ad"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 322,
+                                    lineNumber: 324,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1083,7 +1085,7 @@ function GeneratePage() {
                                     children: "GPT-4o Vision will analyze the conversion elements and create a replication brief. Or skip analysis to generate directly from the image."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 323,
+                                    lineNumber: 325,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1094,7 +1096,7 @@ function GeneratePage() {
                                             children: "OpenAI API Key"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 330,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1104,13 +1106,13 @@ function GeneratePage() {
                                             onChange: (e)=>setOpenaiKey(e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 329,
+                                            lineNumber: 331,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 327,
+                                    lineNumber: 329,
                                     columnNumber: 15
                                 }, this),
                                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1121,7 +1123,7 @@ function GeneratePage() {
                                             children: "Error"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 338,
+                                            lineNumber: 340,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1129,13 +1131,13 @@ function GeneratePage() {
                                             children: error
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 339,
+                                            lineNumber: 341,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 337,
+                                    lineNumber: 339,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1149,14 +1151,14 @@ function GeneratePage() {
                                                     className: "h-4 w-4 mr-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/generate/page.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 346,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Back"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 343,
+                                            lineNumber: 345,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1168,7 +1170,7 @@ function GeneratePage() {
                                                         className: "h-4 w-4 mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 350,
+                                                        lineNumber: 352,
                                                         columnNumber: 23
                                                     }, this),
                                                     "Analyzing..."
@@ -1179,7 +1181,7 @@ function GeneratePage() {
                                                         className: "h-4 w-4 mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 355,
+                                                        lineNumber: 357,
                                                         columnNumber: 23
                                                     }, this),
                                                     "Analyze"
@@ -1187,7 +1189,7 @@ function GeneratePage() {
                                             }, void 0, true)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 347,
+                                            lineNumber: 349,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1198,37 +1200,37 @@ function GeneratePage() {
                                                     className: "h-4 w-4 mr-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/generate/page.tsx",
-                                                    lineNumber: 361,
+                                                    lineNumber: 363,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Skip"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 360,
+                                            lineNumber: 362,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 342,
+                                    lineNumber: 344,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/generate/page.tsx",
-                            lineNumber: 321,
+                            lineNumber: 323,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 320,
+                        lineNumber: 322,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/generate/page.tsx",
-                lineNumber: 309,
+                lineNumber: 311,
                 columnNumber: 9
             }, this),
             step === "configure" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1248,12 +1250,12 @@ function GeneratePage() {
                                                     children: "Replication Brief"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/generate/page.tsx",
-                                                    lineNumber: 377,
+                                                    lineNumber: 379,
                                                     columnNumber: 31
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 377,
+                                                lineNumber: 379,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1266,7 +1268,7 @@ function GeneratePage() {
                                                                 children: "Score:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 380,
+                                                                lineNumber: 382,
                                                                 columnNumber: 23
                                                             }, this),
                                                             " ",
@@ -1278,13 +1280,13 @@ function GeneratePage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 381,
+                                                                lineNumber: 383,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 379,
+                                                        lineNumber: 381,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1294,7 +1296,7 @@ function GeneratePage() {
                                                                 children: "Layout:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 384,
+                                                                lineNumber: 386,
                                                                 columnNumber: 23
                                                             }, this),
                                                             " ",
@@ -1303,13 +1305,13 @@ function GeneratePage() {
                                                                 children: localAnalysis.conversionElements.visualHierarchy.layoutType
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 385,
+                                                                lineNumber: 387,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 383,
+                                                        lineNumber: 385,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1319,7 +1321,7 @@ function GeneratePage() {
                                                                 children: "Keep:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 388,
+                                                                lineNumber: 390,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1330,30 +1332,30 @@ function GeneratePage() {
                                                                         children: e
                                                                     }, i, false, {
                                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                                        lineNumber: 391,
+                                                                        lineNumber: 393,
                                                                         columnNumber: 27
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 389,
+                                                                lineNumber: 391,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 387,
+                                                        lineNumber: 389,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 378,
+                                                lineNumber: 380,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 376,
+                                        lineNumber: 378,
                                         columnNumber: 17
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                         className: "border-yellow-500/20",
@@ -1366,7 +1368,7 @@ function GeneratePage() {
                                                         className: "h-5 w-5 text-yellow-500 shrink-0 mt-0.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 401,
+                                                        lineNumber: 403,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1376,7 +1378,7 @@ function GeneratePage() {
                                                                 children: "Direct Generation Mode"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 403,
+                                                                lineNumber: 405,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1384,29 +1386,29 @@ function GeneratePage() {
                                                                 children: "Generating without analysis. The AI will study the reference image directly and replicate its visual design with your brand."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 404,
+                                                                lineNumber: 406,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 402,
+                                                        lineNumber: 404,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 400,
+                                                lineNumber: 402,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 399,
+                                            lineNumber: 401,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 398,
+                                        lineNumber: 400,
                                         columnNumber: 17
                                     }, this),
                                     imageUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1419,18 +1421,18 @@ function GeneratePage() {
                                             unoptimized: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 415,
+                                            lineNumber: 417,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 414,
+                                        lineNumber: 416,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 374,
+                                lineNumber: 376,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1441,12 +1443,12 @@ function GeneratePage() {
                                             children: "Generation Settings"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 421,
+                                            lineNumber: 423,
                                             columnNumber: 27
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 421,
+                                        lineNumber: 423,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1460,7 +1462,7 @@ function GeneratePage() {
                                                         children: "Aspect Ratio"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 424,
+                                                        lineNumber: 426,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1475,7 +1477,7 @@ function GeneratePage() {
                                                                 children: "4:5 — Meta Feed"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 426,
+                                                                lineNumber: 428,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1483,7 +1485,7 @@ function GeneratePage() {
                                                                 children: "9:16 — Stories"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 427,
+                                                                lineNumber: 429,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1491,7 +1493,7 @@ function GeneratePage() {
                                                                 children: "1:1 — Square"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 428,
+                                                                lineNumber: 430,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1499,19 +1501,19 @@ function GeneratePage() {
                                                                 children: "16:9 — Display"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 429,
+                                                                lineNumber: 431,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 425,
+                                                        lineNumber: 427,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 423,
+                                                lineNumber: 425,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1522,7 +1524,7 @@ function GeneratePage() {
                                                         children: "Variations"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 433,
+                                                        lineNumber: 435,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1537,7 +1539,7 @@ function GeneratePage() {
                                                                 children: "1 — Exact Replica"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 438,
+                                                                lineNumber: 440,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1545,7 +1547,7 @@ function GeneratePage() {
                                                                 children: "2 — Exact Replicas"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 439,
+                                                                lineNumber: 441,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1553,7 +1555,7 @@ function GeneratePage() {
                                                                 children: "3 — 2 Exact + 1 Creative"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 440,
+                                                                lineNumber: 442,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1561,7 +1563,7 @@ function GeneratePage() {
                                                                 children: "4 — 2 Exact + 2 Creative"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 441,
+                                                                lineNumber: 443,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1569,13 +1571,13 @@ function GeneratePage() {
                                                                 children: "5 — 2 Exact + 3 Creative"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 442,
+                                                                lineNumber: 444,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 434,
+                                                        lineNumber: 436,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1583,13 +1585,13 @@ function GeneratePage() {
                                                         children: "Exact replicas swap branding/colors only. Creative variations adjust layout, sizing, and colors."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 444,
+                                                        lineNumber: 446,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 432,
+                                                lineNumber: 434,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1600,7 +1602,7 @@ function GeneratePage() {
                                                         children: "Optional Text"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 451,
+                                                        lineNumber: 453,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1608,13 +1610,13 @@ function GeneratePage() {
                                                         children: "Leave blank to keep only the text from the original ad (with competitor name swapped). Fill these to add specific text."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 452,
+                                                        lineNumber: 454,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 450,
+                                                lineNumber: 452,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1625,7 +1627,7 @@ function GeneratePage() {
                                                         children: "Suggested Headline"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 457,
+                                                        lineNumber: 459,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1640,13 +1642,13 @@ function GeneratePage() {
                                                         placeholder: "e.g., Transform Your Skin in 7 Days (optional)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 458,
+                                                        lineNumber: 460,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 456,
+                                                lineNumber: 458,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1657,7 +1659,7 @@ function GeneratePage() {
                                                         children: "Suggested CTA"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 465,
+                                                        lineNumber: 467,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1672,13 +1674,13 @@ function GeneratePage() {
                                                         placeholder: "e.g., Shop Now (optional)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 466,
+                                                        lineNumber: 468,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 464,
+                                                lineNumber: 466,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1689,7 +1691,7 @@ function GeneratePage() {
                                                         children: "Style Customizations"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 475,
+                                                        lineNumber: 477,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1697,13 +1699,13 @@ function GeneratePage() {
                                                         children: "Empty fields use your brand profile defaults."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 476,
+                                                        lineNumber: 478,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 474,
+                                                lineNumber: 476,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1714,7 +1716,7 @@ function GeneratePage() {
                                                         children: "Custom Color Scheme"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 481,
+                                                        lineNumber: 483,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1729,13 +1731,13 @@ function GeneratePage() {
                                                         placeholder: "e.g., Use pastel pink and white with gold accents"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 482,
+                                                        lineNumber: 484,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 480,
+                                                lineNumber: 482,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1746,7 +1748,7 @@ function GeneratePage() {
                                                         children: "Custom Branding"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 489,
+                                                        lineNumber: 491,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1761,13 +1763,13 @@ function GeneratePage() {
                                                         placeholder: "e.g., Include logo top-left, tagline bottom"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 490,
+                                                        lineNumber: 492,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 488,
+                                                lineNumber: 490,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1778,7 +1780,7 @@ function GeneratePage() {
                                                         children: "Additional Instructions"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 497,
+                                                        lineNumber: 499,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1794,13 +1796,13 @@ function GeneratePage() {
                                                         rows: 3
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 498,
+                                                        lineNumber: 500,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 496,
+                                                lineNumber: 498,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1813,7 +1815,7 @@ function GeneratePage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 507,
+                                                        lineNumber: 509,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1824,13 +1826,13 @@ function GeneratePage() {
                                                                 children: brandProfile.brandName || "Not set"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 508,
+                                                                lineNumber: 510,
                                                                 columnNumber: 35
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 508,
+                                                        lineNumber: 510,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1842,7 +1844,7 @@ function GeneratePage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 509,
+                                                        lineNumber: 511,
                                                         columnNumber: 19
                                                     }, this),
                                                     isDirectMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1850,7 +1852,7 @@ function GeneratePage() {
                                                         children: "Mode: Direct (no analysis)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 510,
+                                                        lineNumber: 512,
                                                         columnNumber: 36
                                                     }, this),
                                                     editedPrompt !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1858,13 +1860,13 @@ function GeneratePage() {
                                                         children: "Using custom edited prompt"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 511,
+                                                        lineNumber: 513,
                                                         columnNumber: 45
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 506,
+                                                lineNumber: 508,
                                                 columnNumber: 17
                                             }, this),
                                             !brandProfile.brandName && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1872,7 +1874,7 @@ function GeneratePage() {
                                                 children: "Set up your brand profile in Knowledge Base for better results."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 514,
+                                                lineNumber: 516,
                                                 columnNumber: 19
                                             }, this),
                                             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1883,7 +1885,7 @@ function GeneratePage() {
                                                         children: "Error"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 520,
+                                                        lineNumber: 522,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1891,13 +1893,13 @@ function GeneratePage() {
                                                         children: error
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 521,
+                                                        lineNumber: 523,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 519,
+                                                lineNumber: 521,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1911,14 +1913,14 @@ function GeneratePage() {
                                                                 className: "h-4 w-4 mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 526,
+                                                                lineNumber: 528,
                                                                 columnNumber: 21
                                                             }, this),
                                                             "Back"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 525,
+                                                        lineNumber: 527,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1929,14 +1931,14 @@ function GeneratePage() {
                                                                 className: "h-4 w-4 mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 530,
+                                                                lineNumber: 532,
                                                                 columnNumber: 21
                                                             }, this),
                                                             editedPrompt !== null ? "Edit Prompt" : "View Full Prompt"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 529,
+                                                        lineNumber: 531,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1947,7 +1949,7 @@ function GeneratePage() {
                                                                 className: "h-4 w-4 mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 534,
+                                                                lineNumber: 536,
                                                                 columnNumber: 21
                                                             }, this),
                                                             "Generate ",
@@ -1957,31 +1959,31 @@ function GeneratePage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 533,
+                                                        lineNumber: 535,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 524,
+                                                lineNumber: 526,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 422,
+                                        lineNumber: 424,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 420,
+                                lineNumber: 422,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 373,
+                        lineNumber: 375,
                         columnNumber: 11
                     }, this),
                     showPromptEditor && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1999,14 +2001,14 @@ function GeneratePage() {
                                                         className: "h-4 w-4 text-primary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 548,
+                                                        lineNumber: 550,
                                                         columnNumber: 21
                                                     }, this),
                                                     "Full Prompt (Editable)"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 547,
+                                                lineNumber: 549,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2022,14 +2024,14 @@ function GeneratePage() {
                                                                 className: "h-3 w-3 mr-1"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 558,
+                                                                lineNumber: 560,
                                                                 columnNumber: 23
                                                             }, this),
                                                             "Reset"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 552,
+                                                        lineNumber: 554,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2045,14 +2047,14 @@ function GeneratePage() {
                                                                 className: "h-3 w-3 mr-1"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 567,
+                                                                lineNumber: 569,
                                                                 columnNumber: 23
                                                             }, this),
                                                             "Discard"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 561,
+                                                        lineNumber: 563,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2064,26 +2066,26 @@ function GeneratePage() {
                                                                 className: "h-3 w-3 mr-1"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                                lineNumber: 575,
+                                                                lineNumber: 577,
                                                                 columnNumber: 23
                                                             }, this),
                                                             "Save"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 570,
+                                                        lineNumber: 572,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 551,
+                                                lineNumber: 553,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 546,
+                                        lineNumber: 548,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2094,13 +2096,13 @@ function GeneratePage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 580,
+                                        lineNumber: 582,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 545,
+                                lineNumber: 547,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2111,24 +2113,24 @@ function GeneratePage() {
                                     className: "font-mono text-xs leading-relaxed"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 586,
+                                    lineNumber: 588,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 585,
+                                lineNumber: 587,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 544,
+                        lineNumber: 546,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/generate/page.tsx",
-                lineNumber: 372,
+                lineNumber: 374,
                 columnNumber: 9
             }, this),
             (step === "generate" || step === "review") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2142,7 +2144,7 @@ function GeneratePage() {
                                 children: "Generation Error"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 603,
+                                lineNumber: 605,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2150,13 +2152,13 @@ function GeneratePage() {
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 604,
+                                lineNumber: 606,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 602,
+                        lineNumber: 604,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2170,7 +2172,7 @@ function GeneratePage() {
                                         children: "Original"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 611,
+                                        lineNumber: 613,
                                         columnNumber: 15
                                     }, this),
                                     imageUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2183,18 +2185,18 @@ function GeneratePage() {
                                             unoptimized: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 614,
+                                            lineNumber: 616,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 613,
+                                        lineNumber: 615,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 610,
+                                lineNumber: 612,
                                 columnNumber: 13
                             }, this),
                             variations.map((v, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2205,7 +2207,7 @@ function GeneratePage() {
                                             children: v.label
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 622,
+                                            lineNumber: 624,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2217,7 +2219,7 @@ function GeneratePage() {
                                                         className: "h-8 w-8"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 626,
+                                                        lineNumber: 628,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2225,13 +2227,13 @@ function GeneratePage() {
                                                         children: "Generating..."
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 627,
+                                                        lineNumber: 629,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 625,
+                                                lineNumber: 627,
                                                 columnNumber: 21
                                             }, this) : v.status === "rejected" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex flex-col items-center justify-center h-full gap-2",
@@ -2240,7 +2242,7 @@ function GeneratePage() {
                                                         className: "h-8 w-8 text-destructive"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 631,
+                                                        lineNumber: 633,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2248,13 +2250,13 @@ function GeneratePage() {
                                                         children: "Failed"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 632,
+                                                        lineNumber: 634,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 630,
+                                                lineNumber: 632,
                                                 columnNumber: 21
                                             }, this) : v.imageDataUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                 src: v.imageDataUrl,
@@ -2264,12 +2266,12 @@ function GeneratePage() {
                                                 unoptimized: true
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/generate/page.tsx",
-                                                lineNumber: 635,
+                                                lineNumber: 637,
                                                 columnNumber: 21
                                             }, this) : null
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 623,
+                                            lineNumber: 625,
                                             columnNumber: 17
                                         }, this),
                                         v.status === "completed" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2284,14 +2286,14 @@ function GeneratePage() {
                                                             className: "h-3.5 w-3.5 mr-1"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/generate/page.tsx",
-                                                            lineNumber: 641,
+                                                            lineNumber: 643,
                                                             columnNumber: 23
                                                         }, this),
                                                         "Download"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/generate/page.tsx",
-                                                    lineNumber: 640,
+                                                    lineNumber: 642,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2311,18 +2313,18 @@ function GeneratePage() {
                                                         className: "h-3.5 w-3.5 mr-1 text-green-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/generate/page.tsx",
-                                                        lineNumber: 653,
+                                                        lineNumber: 655,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/generate/page.tsx",
-                                                    lineNumber: 644,
+                                                    lineNumber: 646,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 639,
+                                            lineNumber: 641,
                                             columnNumber: 19
                                         }, this),
                                         v.status === "approved" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -2330,19 +2332,19 @@ function GeneratePage() {
                                             children: "Approved"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/generate/page.tsx",
-                                            lineNumber: 658,
+                                            lineNumber: 660,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, v.id, true, {
                                     fileName: "[project]/src/app/generate/page.tsx",
-                                    lineNumber: 621,
+                                    lineNumber: 623,
                                     columnNumber: 15
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 608,
+                        lineNumber: 610,
                         columnNumber: 11
                     }, this),
                     step === "review" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2356,14 +2358,14 @@ function GeneratePage() {
                                         className: "h-4 w-4 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 667,
+                                        lineNumber: 669,
                                         columnNumber: 17
                                     }, this),
                                     "Regenerate"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 666,
+                                lineNumber: 668,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2375,36 +2377,36 @@ function GeneratePage() {
                                         className: "h-4 w-4 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/generate/page.tsx",
-                                        lineNumber: 677,
+                                        lineNumber: 679,
                                         columnNumber: 17
                                     }, this),
                                     "Download All"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/generate/page.tsx",
-                                lineNumber: 670,
+                                lineNumber: 672,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/generate/page.tsx",
-                        lineNumber: 665,
+                        lineNumber: 667,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/generate/page.tsx",
-                lineNumber: 600,
+                lineNumber: 602,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/generate/page.tsx",
-        lineNumber: 229,
+        lineNumber: 231,
         columnNumber: 5
     }, this);
 }
-_s(GeneratePage, "hrEWWlKY/YC7e66x7jjFqzE6yqc=", false, function() {
+_s(GeneratePage, "CFHOK8djRQxYf+l0x2RNzyXt9Ig=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppStore"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$generate$2d$store$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGenerateStore"]
