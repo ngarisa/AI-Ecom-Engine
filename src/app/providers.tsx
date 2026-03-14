@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState, useEffect, type ReactNode } from "react";
 import { useAppStore } from "@/lib/store";
+import { ToastViewport } from "@/components/ui/toast";
 
 function ThemeApplier() {
   const theme = useAppStore((s) => s.theme);
@@ -36,6 +37,7 @@ export function Providers({ children }: { children: ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <ThemeApplier />
       {children}
+      <ToastViewport />
     </QueryClientProvider>
   );
 }

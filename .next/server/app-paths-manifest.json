@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/api/foreplay/ad-details/route": "app/api/foreplay/ad-details/route.js",
+  "/api/analyze/route": "app/api/analyze/route.js",
+  "/api/foreplay/brand-ads/route": "app/api/foreplay/brand-ads/route.js",
+  "/api/foreplay/discover-brands/route": "app/api/foreplay/discover-brands/route.js",
+  "/api/foreplay/discover-ads/route": "app/api/foreplay/discover-ads/route.js",
+  "/api/generate/route": "app/api/generate/route.js",
+  "/analytics/page": "app/analytics/page.js",
+  "/discover/page": "app/discover/page.js",
+  "/generate/page": "app/generate/page.js",
+  "/knowledge-base/page": "app/knowledge-base/page.js",
+  "/page": "app/page.js",
+  "/errors/page": "app/errors/page.js"
+}

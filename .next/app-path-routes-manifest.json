@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/api/foreplay/ad-details/route": "/api/foreplay/ad-details",
+  "/api/analyze/route": "/api/analyze",
+  "/api/foreplay/brand-ads/route": "/api/foreplay/brand-ads",
+  "/api/foreplay/discover-brands/route": "/api/foreplay/discover-brands",
+  "/api/foreplay/discover-ads/route": "/api/foreplay/discover-ads",
+  "/api/generate/route": "/api/generate",
+  "/analytics/page": "/analytics",
+  "/discover/page": "/discover",
+  "/generate/page": "/generate",
+  "/knowledge-base/page": "/knowledge-base",
+  "/page": "/",
+  "/errors/page": "/errors"
+}
