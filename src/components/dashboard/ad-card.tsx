@@ -1,76 +1,73 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import type { ForeplayAd } from "@/types/foreplay";
 import { formatDate } from "@/lib/utils";
-import { Sparkles, Search, ExternalLink, Clock } from "lucide-react";
+import { Sparkles, Search, ExternalLink, Clock, Play, Video } from "lucide-react";
 
 interface AdCardProps {
   ad: ForeplayAd;
   analysisScore?: number;
   onAnalyze: (ad: ForeplayAd) => void;
   onDuplicate: (ad: ForeplayAd) => void;
+  onImageToVideo?: (ad: ForeplayAd) => void;
   compact?: boolean;
 }
 
-export function AdCard({ ad, analysisScore, onAnalyze, onDuplicate, compact }: AdCardProps) {
+export function AdCard({ ad, analysisScore, onAnalyze, onDuplicate, onImageToVideo, compact }: AdCardProps) {
   const days = ad.running_duration?.days ?? 0;
   const imageUrl = ad.image || ad.thumbnail;
+  const isVideo = !!ad.video;
+  const [playing, setPlaying] = useState(false);
 
   return (
     <Card className="overflow-hidden group hover:border-primary/30 transition-colors">
-      {/* Image */}
+      {/* Media */}
       <div className="relative aspect-[4/5] bg-muted overflow-hidden">
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={ad.name || "Ad"}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            unoptimized
+        {playing && ad.video ? (
+          <video
+            src={ad.video}
+            autoPlay
+            controls
+            className="absolute inset-0 w-full h-full object-cover"
+            onEnded={() => setPlaying(false)}
           />
+        ) : imageUrl ? (
+          <>
+            <Image
+              src={imageUrl}
+              alt={ad.name || "Ad"}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized
+            />
+            {isVideo && (
+              <button
+                onClick={() => setPlaying(true)}
+                className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity"
+                aria-label="Play video"
+              >
+                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-white/90 shadow-lg">
+                  <Play className="h-5 w-5 text-black fill-black ml-0.5" />
+                </div>
+              </button>
+            )}
+          </>
         ) : (
           <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
             No image
           </div>
         )}
 
-        {/* Overlay buttons */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-          {compact ? (
-            <>
-              <button
-                onClick={() => onAnalyze(ad)}
-                className="p-1.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                title="Analyze"
-              >
-                <Search className="h-3 w-3" />
-              </button>
-              <button
-                onClick={() => onDuplicate(ad)}
-                className="p-1.5 rounded-lg bg-black/60 border border-white/20 text-white hover:bg-black/80 transition-colors"
-                title="Duplicate"
-              >
-                <Sparkles className="h-3 w-3" />
-              </button>
-            </>
-          ) : (
-            <>
-              <Button size="sm" onClick={() => onAnalyze(ad)}>
-                <Search className="h-3.5 w-3.5 mr-1.5" />
-                Analyze
-              </Button>
-              <Button size="sm" variant="outline" onClick={() => onDuplicate(ad)} className="bg-black/50">
-                <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-                Duplicate
-              </Button>
-            </>
-          )}
-        </div>
+        {/* Image-only overlay — keeps existing hover behaviour for non-video ads */}
+        {!isVideo && (
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity" />
+        )}
 
         {/* Score badge */}
         {analysisScore !== undefined && (
@@ -132,6 +129,52 @@ export function AdCard({ ad, analysisScore, onAnalyze, onDuplicate, compact }: A
             ))}
           </div>
         )}
+
+        {/* Action buttons */}
+        <div className="flex flex-col gap-1.5 pt-1">
+          <div className="flex gap-2">
+            {compact ? (
+              <>
+                <button
+                  onClick={() => onAnalyze(ad)}
+                  className="flex items-center gap-1 px-2 py-1 rounded-md text-xs bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                >
+                  <Search className="h-3 w-3" />
+                  Analyze
+                </button>
+                <button
+                  onClick={() => onDuplicate(ad)}
+                  className="flex items-center gap-1 px-2 py-1 rounded-md text-xs bg-muted hover:bg-muted/80 transition-colors"
+                >
+                  <Sparkles className="h-3 w-3" />
+                  Duplicate
+                </button>
+              </>
+            ) : (
+              <>
+                <Button size="sm" className="flex-1" onClick={() => onAnalyze(ad)}>
+                  <Search className="h-3.5 w-3.5 mr-1.5" />
+                  Analyze
+                </Button>
+                <Button size="sm" variant="outline" className="flex-1" onClick={() => onDuplicate(ad)}>
+                  <Sparkles className="h-3.5 w-3.5 mr-1.5" />
+                  Duplicate
+                </Button>
+              </>
+            )}
+          </div>
+          {onImageToVideo && !isVideo && (
+            <Button
+              size="sm"
+              variant="outline"
+              className="w-full border-primary/30 text-primary hover:bg-primary/10"
+              onClick={() => onImageToVideo(ad)}
+            >
+              <Video className="h-3.5 w-3.5 mr-1.5" />
+              Image to Video
+            </Button>
+          )}
+        </div>
       </div>
     </Card>
   );

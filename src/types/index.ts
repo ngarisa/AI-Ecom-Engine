@@ -128,6 +128,18 @@ export interface UsageStats {
   adsAnalyzed: number;
   adsGenerated: number;
   generationCostUsd: number;
+  videosGenerated: number;
+}
+
+export interface GeneratedVideo {
+  id: string;
+  sourceAdId: string | null;
+  sourceThumbnailUrl: string | null;
+  videoDataUrl?: string; // in-memory only, not persisted to localStorage
+  type: "image-to-video" | "generate-video";
+  aspectRatio: string;
+  durationSeconds: number;
+  createdAt: string;
 }
 
 export type WinnerTier = "potential" | "strong" | "proven";

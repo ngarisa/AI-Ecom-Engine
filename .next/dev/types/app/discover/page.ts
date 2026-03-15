@@ -1,4 +1,4 @@
-// File: /Users/nihalgarisa/Downloads/AI Ecom Engine/src/app/discover/page.tsx
+// File: /Users/renunayyar/Documents/AI-Ecom-Engine/src/app/discover/page.tsx
 import * as entry from '../../../../../src/app/discover/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

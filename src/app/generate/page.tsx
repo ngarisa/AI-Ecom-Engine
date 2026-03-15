@@ -271,11 +271,11 @@ export default function GeneratePage() {
         <Card>
           <CardContent className="p-6 text-center space-y-4">
             <p className="text-muted-foreground">
-              Select a competitor ad from the Ad Feed or Discover page, then come back here to generate.
+              Select a competitor ad from the Competitor Ad Feed or Discover page, then come back here to generate.
             </p>
             <div className="flex gap-3 justify-center">
               <Button variant="outline" onClick={() => window.location.href = "/"}>
-                Go to Ad Feed
+                Go to Competitor Ad Feed
               </Button>
               <Button variant="outline" onClick={() => window.location.href = "/discover"}>
                 Go to Discover

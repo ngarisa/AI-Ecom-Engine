@@ -1,4 +1,4 @@
-// File: /Users/nihalgarisa/Downloads/AI Ecom Engine/src/app/api/foreplay/brand-ads/route.ts
+// File: /Users/renunayyar/Documents/AI-Ecom-Engine/src/app/api/foreplay/brand-ads/route.ts
 import * as entry from '../../../../../../../src/app/api/foreplay/brand-ads/route.js'
 import type { NextRequest } from 'next/server.js'
 

@@ -61,6 +61,7 @@ export function AnalysisModal({ ad, onClose, onDuplicate }: AnalysisModalProps) 
   };
 
   const imageUrl = ad.image || ad.thumbnail;
+  const isVideo = !!ad.video;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={onClose}>
@@ -79,11 +80,20 @@ export function AnalysisModal({ ad, onClose, onDuplicate }: AnalysisModalProps) 
         <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left: Ad preview */}
           <div className="space-y-4">
-            {imageUrl && (
+            {isVideo && ad.video ? (
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-muted">
+                <video
+                  src={ad.video}
+                  controls
+                  poster={imageUrl ?? undefined}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ) : imageUrl ? (
               <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-muted">
                 <Image src={imageUrl} alt="" fill className="object-cover" unoptimized />
               </div>
-            )}
+            ) : null}
             {ad.description && (
               <div className="text-sm text-muted-foreground">{ad.description}</div>
             )}

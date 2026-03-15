@@ -2,8 +2,10 @@
 
 import { useState, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { cn } from "@/lib/utils";
 import { AdCard } from "@/components/dashboard/ad-card";
 import { AnalysisModal } from "@/components/dashboard/analysis-modal";
+import { ImageToVideoModal } from "@/components/dashboard/image-to-video-modal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -12,7 +14,7 @@ import { useAppStore } from "@/lib/store";
 import type { ForeplayAd } from "@/types/foreplay";
 import type { AdAnalysis } from "@/types";
 import { useRouter } from "next/navigation";
-import { Search, Globe } from "lucide-react";
+import { Search, Globe, Image, Video } from "lucide-react";
 
 const NICHE_OPTIONS = [
   "",
@@ -36,18 +38,20 @@ export default function DiscoverPage() {
   const [niche, setNiche] = useState("");
   const [minDays, setMinDays] = useState("14");
   const [order, setOrder] = useState("longest_running");
+  const [format, setFormat] = useState<"image" | "video">("image");
   const [searchTrigger, setSearchTrigger] = useState(0);
   const [analyzingAd, setAnalyzingAd] = useState<ForeplayAd | null>(null);
+  const [imageToVideoAd, setImageToVideoAd] = useState<ForeplayAd | null>(null);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["discover-ads", query, niche, minDays, order, searchTrigger],
+    queryKey: ["discover-ads", query, niche, minDays, order, format, searchTrigger],
     queryFn: async () => {
       const params = new URLSearchParams();
       if (query) params.set("query", query);
       if (niche) params.append("niches", niche);
       if (minDays) params.set("running_duration_min_days", minDays);
       params.set("order", order);
-      params.set("display_format", "image");
+      params.set("display_format", format);
       params.set("limit", "40");
 
       const res = await fetch(`/api/foreplay/discover-ads?${params}`);
@@ -57,7 +61,9 @@ export default function DiscoverPage() {
     enabled: searchTrigger > 0,
   });
 
-  const ads: ForeplayAd[] = data?.data ?? [];
+  const ads: ForeplayAd[] = Array.from(
+    new Map((data?.data as ForeplayAd[] ?? []).map((ad) => [ad.id, ad])).values()
+  );
 
   const handleSearch = () => setSearchTrigger((t) => t + 1);
 
@@ -79,14 +85,44 @@ export default function DiscoverPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold flex items-center gap-2">
-          <Globe className="h-6 w-6 text-primary" />
-          Discover Winning Ads
-        </h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Search across millions of ads to find proven winners in any niche.
-        </p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="text-2xl font-bold flex items-center gap-2">
+            <Globe className="h-6 w-6 text-primary" />
+            Discover Winning Ads
+          </h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            Search across millions of ads to find proven winners in any niche.
+          </p>
+        </div>
+
+        {/* Format toggle */}
+        <div className="flex items-center gap-1 p-1 rounded-lg bg-muted border border-border">
+          <button
+            onClick={() => setFormat("image")}
+            className={cn(
+              "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              format === "image"
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            <Image className="h-3.5 w-3.5" />
+            Images
+          </button>
+          <button
+            onClick={() => setFormat("video")}
+            className={cn(
+              "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              format === "video"
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            <Video className="h-3.5 w-3.5" />
+            Videos
+          </button>
+        </div>
       </div>
 
       <div className="flex items-center gap-3">
@@ -159,6 +195,7 @@ export default function DiscoverPage() {
               analysisScore={analyses[ad.id]?.overallScore}
               onAnalyze={(a) => setAnalyzingAd(a)}
               onDuplicate={() => handleDuplicate(ad)}
+              onImageToVideo={format === "image" ? (a) => setImageToVideoAd(a) : undefined}
             />
           ))}
         </div>
@@ -172,6 +209,13 @@ export default function DiscoverPage() {
             setAnalyzingAd(null);
             handleDuplicate(ad, analysis);
           }}
+        />
+      )}
+
+      {imageToVideoAd && (
+        <ImageToVideoModal
+          ad={imageToVideoAd}
+          onClose={() => setImageToVideoAd(null)}
         />
       )}
     </div>

@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useAppStore } from "@/lib/store";
 import { useGenerateStore } from "@/lib/generate-store";
+import type { GeneratedVideo } from "@/types";
 import {
   BarChart3,
   Eye,
@@ -12,6 +14,9 @@ import {
   Brain,
   Image as ImageIcon,
   TrendingUp,
+  Video,
+  X,
+  Play,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -165,8 +170,9 @@ function AdsCreatedChart({ generatedAds, accentColor = "#6366f1" }: { generatedA
 }
 
 export default function AnalyticsPage() {
-  const { usage, competitors, analyses, generationDates, analysisDates } = useAppStore();
+  const { usage, competitors, analyses, generationDates, analysisDates, generatedVideos, videoGenerationDates } = useAppStore();
   const variations = useGenerateStore((s) => s.variations);
+  const [previewVideo, setPreviewVideo] = useState<GeneratedVideo | null>(null);
 
   const completedVariations = variations.filter(
     (v) => v.status === "completed" || v.status === "approved"
@@ -191,10 +197,16 @@ export default function AnalyticsPage() {
       color: "text-purple-400",
     },
     {
-      label: "Ads Generated",
+      label: "Images Generated",
       value: usage.adsGenerated,
       icon: ImageIcon,
       color: "text-green-400",
+    },
+    {
+      label: "Videos Generated",
+      value: usage.videosGenerated ?? 0,
+      icon: Video,
+      color: "text-pink-400",
     },
     {
       label: "Generation Cost",
@@ -222,7 +234,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {stats.map((stat) => (
           <Card key={stat.label}>
             <CardContent className="p-4">
@@ -329,7 +341,7 @@ export default function AnalyticsPage() {
           <CardContent>
             {topAnalyses.length === 0 ? (
               <p className="text-sm text-muted-foreground">
-                No ads analyzed yet. Start analyzing from the Ad Feed.
+                No ads analyzed yet. Start analyzing from the Competitor Ad Feed.
               </p>
             ) : (
               <div className="space-y-3">
@@ -357,18 +369,18 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        {/* Recently Generated Ads */}
+        {/* Recently Generated Images */}
         <Card className="lg:col-span-2">
           <CardHeader>
             <h3 className="text-sm font-semibold flex items-center gap-2">
               <ImageIcon className="h-4 w-4 text-primary" />
-              Recently Generated Ads
+              Recently Generated Images
             </h3>
           </CardHeader>
           <CardContent>
             {completedVariations.length === 0 ? (
               <p className="text-sm text-muted-foreground">
-                No ads generated yet. Go to Generate to create your first ad.
+                No images generated yet. Go to Generate Images to create your first ad.
               </p>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -398,6 +410,114 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Video section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Videos Generated Chart */}
+        <Card>
+          <CardHeader>
+            <h3 className="text-sm font-semibold flex items-center gap-2">
+              <Video className="h-4 w-4 text-pink-400" />
+              Videos Generated — Last 14 Days
+            </h3>
+          </CardHeader>
+          <CardContent>
+            {videoGenerationDates.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No videos generated yet.</p>
+            ) : (
+              <AdsCreatedChart generatedAds={videoGenerationDates.map((d) => ({ createdAt: d }))} accentColor="#f472b6" />
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Recently Generated Videos */}
+        <Card>
+          <CardHeader>
+            <h3 className="text-sm font-semibold flex items-center gap-2">
+              <Video className="h-4 w-4 text-pink-400" />
+              Recently Generated Videos
+            </h3>
+          </CardHeader>
+          <CardContent>
+            {generatedVideos.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                No videos generated yet. Use Generate Videos or Image to Video.
+              </p>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {generatedVideos.slice(0, 8).map((v) => (
+                  <div
+                    key={v.id}
+                    className="relative aspect-[9/16] rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group"
+                    onClick={() => setPreviewVideo(v)}
+                  >
+                    {v.sourceThumbnailUrl ? (
+                      <Image src={v.sourceThumbnailUrl} alt="" fill className="object-cover opacity-60 group-hover:opacity-80 transition-opacity" unoptimized />
+                    ) : null}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex items-center justify-center h-10 w-10 rounded-full bg-pink-500/80 group-hover:bg-pink-500 group-hover:scale-110 transition-all">
+                        <Play className="h-5 w-5 text-white fill-white" />
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 p-2 space-y-0.5">
+                      <Badge className="bg-pink-500/20 text-pink-300 text-[9px]">
+                        {v.type === "image-to-video" ? "Img→Vid" : "Generated"}
+                      </Badge>
+                      <p className="text-[9px] text-zinc-400">{v.aspectRatio} · {v.durationSeconds}s</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Video preview lightbox */}
+      {previewVideo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setPreviewVideo(null)}
+        >
+          <div
+            className="relative max-h-[90vh] flex flex-col items-center gap-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute -top-10 right-0 text-white/70 hover:text-white"
+              onClick={() => setPreviewVideo(null)}
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <div className="relative rounded-xl overflow-hidden border border-border bg-black" style={{ maxHeight: "80vh", aspectRatio: previewVideo.aspectRatio.replace(":", "/") }}>
+              {previewVideo.videoDataUrl ? (
+                <video
+                  src={previewVideo.videoDataUrl}
+                  controls
+                  autoPlay
+                  loop
+                  playsInline
+                  className="h-full w-full object-contain"
+                  style={{ maxHeight: "80vh" }}
+                />
+              ) : previewVideo.sourceThumbnailUrl ? (
+                <div className="relative w-64 aspect-[9/16]">
+                  <Image src={previewVideo.sourceThumbnailUrl} alt="" fill className="object-cover" unoptimized />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                    <p className="text-white text-sm text-center px-4">Video not available — generate a new one to replay it.</p>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+            <div className="flex items-center gap-2 text-sm text-white/60">
+              <Badge className="bg-pink-500/20 text-pink-300 text-xs">
+                {previewVideo.type === "image-to-video" ? "Img→Vid" : "Generated"}
+              </Badge>
+              <span>{previewVideo.aspectRatio} · {previewVideo.durationSeconds}s</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

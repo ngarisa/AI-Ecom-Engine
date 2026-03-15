@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { BrandProfile, Competitor, UsageStats, AdAnalysis, GeneratedAd, UploadedAsset, ErrorLogEntry } from "@/types";
+import type { BrandProfile, Competitor, UsageStats, AdAnalysis, GeneratedAd, GeneratedVideo, UploadedAsset, ErrorLogEntry } from "@/types";
 
 const defaultBrandProfile: BrandProfile = {
   brandName: "",
@@ -65,6 +65,12 @@ interface AppState {
   // Analysis history (lightweight — just ISO date strings)
   analysisDates: string[];
   addAnalysisDate: (date: string) => void;
+
+  // Video generation history
+  generatedVideos: GeneratedVideo[];
+  addGeneratedVideo: (video: GeneratedVideo) => void;
+  videoGenerationDates: string[];
+  addVideoGenerationDate: (date: string) => void;
 }
 
 export const useAppStore = create<AppState>()(
@@ -80,6 +86,7 @@ export const useAppStore = create<AppState>()(
         adsAnalyzed: 0,
         adsGenerated: 0,
         generationCostUsd: 0,
+        videosGenerated: 0,
       },
 
       setBrandProfile: (profile) =>
@@ -168,6 +175,13 @@ export const useAppStore = create<AppState>()(
       analysisDates: [],
       addAnalysisDate: (date) =>
         set((state) => ({ analysisDates: [...state.analysisDates, date] })),
+
+      generatedVideos: [],
+      addGeneratedVideo: (video) =>
+        set((state) => ({ generatedVideos: [video, ...state.generatedVideos].slice(0, 50) })),
+      videoGenerationDates: [],
+      addVideoGenerationDate: (date) =>
+        set((state) => ({ videoGenerationDates: [...state.videoGenerationDates, date] })),
     }),
     {
       name: "ai-ecom-engine-store",
@@ -179,6 +193,8 @@ export const useAppStore = create<AppState>()(
         theme: state.theme,
         generationDates: state.generationDates,
         analysisDates: state.analysisDates,
+        generatedVideos: state.generatedVideos.map(({ videoDataUrl: _, ...v }) => v),
+        videoGenerationDates: state.videoGenerationDates,
         // Exclude generatedAds (base64 images) and analyses (large JSON) from localStorage
       }),
     }

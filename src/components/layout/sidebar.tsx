@@ -15,13 +15,16 @@ import {
   Factory,
   Sun,
   Moon,
+  Video,
 } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 
 const mainNav = [
-  { href: "/", label: "Ad Feed", icon: LayoutGrid },
-  { href: "/discover", label: "Discover", icon: Search },
-  { href: "/generate", label: "Generate", icon: ArrowUp },
+  { href: "/", label: "Competitor Ad Feed", icon: LayoutGrid },
+  { href: "/discover", label: "Discover Images", icon: Search },
+  { href: "/discover-videos", label: "Discover Videos", icon: Video },
+  { href: "/generate", label: "Generate Images", icon: ArrowUp },
+  { href: "/generate-videos", label: "Generate Videos", icon: Video },
 ];
 
 const workspaceNav = [
@@ -38,7 +41,7 @@ export function Sidebar() {
   const setTheme = useAppStore((s) => s.setTheme);
 
   const isActive = (href: string) =>
-    pathname === href || (href !== "/" && pathname.startsWith(href));
+    pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 flex flex-col bg-[#0d0d12] text-white">
