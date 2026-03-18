@@ -1,7 +1,4 @@
-[00:00:01.513] Server  LOG     ✓ Ready in 1267ms
-[00:00:06.528] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:01.078] Browser WARN    Image with src "https://r2.foreplay.co/921894545753177/9837ddb6891eee6d6ef052c5f19a5ed7.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:02:19.662] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. OF55ugur6czWmlBzWiaB
-[00:02:22.479] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. OF55ugur6czWmlBzWiaB
-[00:03:21.844] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. OF55ugur6czWmlBzWiaB
+[00:00:01.291] Server  LOG     ✓ Ready in 1085ms
+[00:00:02.949] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:14.592] Server  ERROR   [image-to-video] Error: "HeyGen API error 402: {\"code\":400133,\"message\":\"Insufficient API credits. At least 0.5 credits required to generate a video.\"}\n"
+[00:09:19.275] Server  ERROR   [image-to-video] Error: "Video generation timed out after 5 minutes"

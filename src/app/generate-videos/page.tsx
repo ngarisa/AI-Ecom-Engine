@@ -71,7 +71,7 @@ export default function GenerateVideosPage() {
   const [selectedAd, setSelectedAd] = useState<ForeplayAd | null>(null);
   const [prompt, setPrompt] = useState("");
   const [aspectRatio, setAspectRatio] = useState("9:16");
-  const [durationSeconds, setDurationSeconds] = useState("8");
+  const [durationSeconds, setDurationSeconds] = useState("15");
   const [generating, setGenerating] = useState(false);
   const [enhancing, setEnhancing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -192,7 +192,7 @@ export default function GenerateVideosPage() {
           Generate Video Ad
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Duplicate a winning video ad using Google Veo 3.1.
+          Duplicate a winning video ad using HeyGen.
         </p>
       </div>
 
@@ -276,9 +276,10 @@ export default function GenerateVideosPage() {
               <div className="space-y-1.5">
                 <label className="text-sm font-medium">Duration</label>
                 <Select value={durationSeconds} onChange={(e) => setDurationSeconds(e.target.value)}>
-                  <option value="4">4 seconds</option>
-                  <option value="6">6 seconds</option>
-                  <option value="8">8 seconds</option>
+                  <option value="10">10 seconds</option>
+                  <option value="15">15 seconds</option>
+                  <option value="30">30 seconds</option>
+                  <option value="60">60 seconds</option>
                 </Select>
               </div>
 
@@ -312,7 +313,7 @@ export default function GenerateVideosPage() {
               </div>
 
               <div className="p-3 rounded-lg bg-muted text-xs text-muted-foreground space-y-1">
-                <p>Model: <span className="text-foreground">Veo 3.1</span></p>
+                <p>Model: <span className="text-foreground">HeyGen</span></p>
                 <p>Brand: <span className="text-foreground">{brandProfile.brandName || "Not set"}</span></p>
                 <p className="text-yellow-500">Generation takes 2–3 minutes. Do not close the page.</p>
               </div>
@@ -352,7 +353,7 @@ export default function GenerateVideosPage() {
             <Spinner className="h-10 w-10" />
             <h3 className="text-lg font-semibold">Generating your video...</h3>
             <p className="text-sm text-muted-foreground max-w-sm">
-              Veo 3.1 is creating your video ad. This typically takes 2–3 minutes.
+              HeyGen is creating your video ad. This typically takes 3–7 minutes.
             </p>
             <p className="text-xs text-muted-foreground tabular-nums">
               {Math.floor(elapsedSeconds / 60)}:{String(elapsedSeconds % 60).padStart(2, "0")} elapsed

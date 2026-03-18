@@ -44,7 +44,7 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
   const imageUrl = ad.image || ad.thumbnail;
   const [prompt, setPrompt] = useState(() => buildPrompt(ad, brandProfile));
   const [aspectRatio, setAspectRatio] = useState("9:16");
-  const [durationSeconds, setDurationSeconds] = useState(8);
+  const [durationSeconds, setDurationSeconds] = useState(15);
   const [generating, setGenerating] = useState(false);
   const [enhancing, setEnhancing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -191,9 +191,10 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
             <div className="space-y-1.5">
               <label className="text-sm font-medium">Duration</label>
               <Select value={String(durationSeconds)} onChange={(e) => setDurationSeconds(Number(e.target.value))}>
-                <option value="4">4 seconds</option>
-                <option value="6">6 seconds</option>
-                <option value="8">8 seconds</option>
+                <option value="10">10 seconds</option>
+                <option value="15">15 seconds</option>
+                <option value="30">30 seconds</option>
+                <option value="60">60 seconds</option>
               </Select>
             </div>
 
@@ -227,7 +228,7 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
 
             <Card className="bg-muted/50">
               <CardContent className="p-3 text-xs text-muted-foreground space-y-1">
-                <p>Model: <span className="text-foreground">Veo 3.1 (Image-to-Video)</span></p>
+                <p>Model: <span className="text-foreground">HeyGen</span></p>
                 <p className="text-yellow-500">Generation takes 2–3 minutes.</p>
               </CardContent>
             </Card>

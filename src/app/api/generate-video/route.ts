@@ -1,18 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export const maxDuration = 300; // 5 minutes — Veo generation can take 2-3 min
+export const maxDuration = 600; // 10 minutes — HeyGen generation can take several minutes
 
-const VEO_MODEL = "veo-3.1-generate-preview";
-const BASE_URL = "https://generativelanguage.googleapis.com/v1beta";
+const HEYGEN_BASE = "https://api.heygen.com";
 
-async function pollOperation(operationName: string, apiKey: string): Promise<string> {
-  const maxAttempts = 30; // 30 × 10s = 5 min max
+async function pollVideoStatus(videoId: string, apiKey: string): Promise<string> {
+  const maxAttempts = 60; // 60 × 10s = 10 min max
 
   for (let i = 0; i < maxAttempts; i++) {
     await new Promise((resolve) => setTimeout(resolve, 10000));
 
-    const res = await fetch(`${BASE_URL}/${operationName}`, {
-      headers: { "x-goog-api-key": apiKey },
+    const res = await fetch(`${HEYGEN_BASE}/v1/video_status.get?video_id=${videoId}`, {
+      headers: { "X-Api-Key": apiKey },
     });
 
     if (!res.ok) {
@@ -21,99 +20,76 @@ async function pollOperation(operationName: string, apiKey: string): Promise<str
     }
 
     const data = await res.json();
+    const status = data?.data?.status;
 
-    if (data.done) {
-      if (data.error) {
-        throw new Error(`Video generation failed: ${JSON.stringify(data.error)}`);
-      }
-
-      // Actual response path from Veo API
-      const sample = data.response?.generateVideoResponse?.generatedSamples?.[0];
-      const videoUri = sample?.video?.uri;
-
-      if (!videoUri) {
-        throw new Error(`No video URI in response. Raw: ${JSON.stringify(data.response)}`);
+    if (status === "completed") {
+      const videoUrl = data?.data?.video_url;
+      if (!videoUrl) {
+        throw new Error(`No video_url in response. Raw: ${JSON.stringify(data)}`);
       }
 
       // Fetch the video and convert to base64 so the client can display it
-      const videoRes = await fetch(videoUri, {
-        headers: { "x-goog-api-key": apiKey },
-      });
+      const videoRes = await fetch(videoUrl);
       if (!videoRes.ok) {
         throw new Error(`Failed to fetch generated video: ${videoRes.status}`);
       }
       const buffer = await videoRes.arrayBuffer();
       return Buffer.from(buffer).toString("base64");
     }
+
+    if (status === "failed") {
+      throw new Error(`Video generation failed: ${JSON.stringify(data)}`);
+    }
   }
 
-  throw new Error("Video generation timed out after 5 minutes");
+  throw new Error("Video generation timed out after 10 minutes");
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { prompt, thumbnailUrl, aspectRatio, durationSeconds } = await request.json() as {
+    const { prompt, durationSeconds } = await request.json() as {
       prompt: string;
       thumbnailUrl?: string | null;
       aspectRatio?: string;
       durationSeconds?: string;
     };
 
-    const apiKey = process.env.GOOGLE_AI_API_KEY;
+    const apiKey = process.env.HEYGEN_API_KEY;
     if (!apiKey) {
-      return NextResponse.json({ error: "GOOGLE_AI_API_KEY not configured" }, { status: 500 });
+      return NextResponse.json({ error: "HEYGEN_API_KEY not configured" }, { status: 500 });
     }
 
     if (!prompt) {
       return NextResponse.json({ error: "prompt is required" }, { status: 400 });
     }
 
-    // Build instance — optionally attach competitor thumbnail as first-frame reference
-    const instance: Record<string, unknown> = { prompt };
+    // HeyGen Video Agent has no duration param — inject it into the prompt
+    const duration = Number(durationSeconds) || 15;
+    const promptWithDuration = `${prompt} The video should be approximately ${duration} seconds long.`;
 
-    if (thumbnailUrl) {
-      try {
-        const imgRes = await fetch(thumbnailUrl);
-        if (imgRes.ok) {
-          const buffer = await imgRes.arrayBuffer();
-          instance.image = {
-            bytesBase64Encoded: Buffer.from(buffer).toString("base64"),
-            mimeType: imgRes.headers.get("content-type") || "image/jpeg",
-          };
-        }
-      } catch {
-        // proceed without reference image
-      }
-    }
-
-    // Start long-running generation
-    const genRes = await fetch(
-      `${BASE_URL}/models/${VEO_MODEL}:predictLongRunning?key=${apiKey}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          instances: [instance],
-          parameters: {
-            aspectRatio: aspectRatio || "9:16",
-            durationSeconds: Number(durationSeconds) || 8,
-          },
-        }),
-      }
-    );
+    // Start HeyGen Video Agent generation
+    const genRes = await fetch(`${HEYGEN_BASE}/v1/video_agent/generate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Api-Key": apiKey,
+      },
+      body: JSON.stringify({ prompt: promptWithDuration }),
+    });
 
     if (!genRes.ok) {
       const errText = await genRes.text();
-      throw new Error(`Veo API error ${genRes.status}: ${errText}`);
+      throw new Error(`HeyGen API error ${genRes.status}: ${errText}`);
     }
 
-    const operation = await genRes.json();
-    if (!operation.name) {
-      throw new Error("No operation name returned from Veo API");
+    const genData = await genRes.json();
+    const videoId = genData?.data?.video_id;
+    if (!videoId) {
+      throw new Error(`No video_id returned from HeyGen API. Raw: ${JSON.stringify(genData)}`);
     }
 
     // Poll until complete
-    const videoBase64 = await pollOperation(operation.name, apiKey);
+    const videoBase64 = await pollVideoStatus(videoId, apiKey);
 
     return NextResponse.json({ data: { videoBase64, mimeType: "video/mp4" } });
   } catch (error) {
