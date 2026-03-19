@@ -1,4 +1,5 @@
-[00:00:01.291] Server  LOG     ✓ Ready in 1085ms
-[00:00:02.949] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:14.592] Server  ERROR   [image-to-video] Error: "HeyGen API error 402: {\"code\":400133,\"message\":\"Insufficient API credits. At least 0.5 credits required to generate a video.\"}\n"
-[00:09:19.275] Server  ERROR   [image-to-video] Error: "Video generation timed out after 5 minutes"
+[00:00:03.181] Server  LOG     ✓ Ready in 2.3s
+[00:01:02.442] Server  LOG     ○ Compiling / ...
+[00:01:08.049] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:12.581] Browser WARN    Image with src "https://r2.foreplay.co/1241475150335165/8a06e7c36560ab85eb393031fd320d09.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
 import { Sidebar } from "@/components/layout/sidebar";
+import { TopBar } from "@/components/layout/topbar";
+import { AssistantDrawer } from "@/components/assistant/assistant-drawer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,9 +22,11 @@ export default function RootLayout({
           <div className="flex min-h-screen">
             <Sidebar />
             <main className="flex-1 ml-64 bg-background min-h-screen">
+              <TopBar />
               <div className="p-6 max-w-[1600px] mx-auto">{children}</div>
             </main>
           </div>
+          <AssistantDrawer />
         </Providers>
       </body>
     </html>
