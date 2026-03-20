@@ -1,5 +1,478 @@
-[00:00:03.181] Server  LOG     ✓ Ready in 2.3s
-[00:01:02.442] Server  LOG     ○ Compiling / ...
-[00:01:08.049] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:12.581] Browser WARN    Image with src "https://r2.foreplay.co/1241475150335165/8a06e7c36560ab85eb393031fd320d09.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+[00:00:02.887] Server  LOG     ✓ Ready in 2.2s
+[00:00:13.321] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:16.431] Server  LOG     ○ Compiling /api/telegram/poll ...
+[00:06:38.385] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:40.080] Browser WARN    Image with src "https://r2.foreplay.co/422204450346749/297cc188848340e3073d051adaa34475.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:34:55.239] Server  WARN    ⚠ ./src/app/api/telegram/poll/route.ts
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./src/app/api/telegram/poll/route.ts
+[00:35:16.740] Server  WARN    ⚠ ./src/app/api/telegram/poll/route.ts
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./src/app/api/telegram/poll/route.ts
+[00:35:43.196] Server  WARN    ⚠ ./src/app/api/telegram/poll/route.ts
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./src/app/api/telegram/poll/route.ts
+[00:39:20.476] Server  WARN    ⚠ ./src/app/api/telegram/poll/route.ts
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./src/app/api/telegram/poll/route.ts
+[00:39:39.143] Server  WARN    ⚠ ./src/app/api/telegram/poll/route.ts
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./src/app/api/telegram/poll/route.ts
+[00:40:06.142] Server  WARN    ⚠ ./src/app/api/telegram/poll/route.ts
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./src/app/api/telegram/poll/route.ts
+[00:40:30.831] Server  WARN    ⚠ ./src/app/api/telegram/poll/route.ts
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./src/app/api/telegram/poll/route.ts
+[00:51:29.735] Server  LOG     ○ Compiling /api/telegram/poll ...
+[01:04:22.858] Server  LOG     ○ Compiling /api/telegram/stream ...
+[01:05:34.942] Server  LOG     [assistant/poll] request {}
+[01:05:35.076] Server  LOG     [assistant/poll] chat.history summary {}
+[01:05:35.080] Server  LOG     [assistant/poll] parsed+return {}
+[01:05:46.782] Server  LOG     [assistant/poll] request {}
+[01:05:46.880] Server  LOG     [assistant/poll] chat.history summary {}
+[01:05:46.882] Server  LOG     [assistant/poll] parsed+return {}
+[01:06:04.007] Server  LOG     [assistant/poll] request {}
+[01:06:04.037] Server  LOG     [assistant/poll] chat.history summary {}
+[01:06:04.039] Server  LOG     [assistant/poll] parsed+return {}
+[01:06:22.270] Server  LOG     [assistant/poll] request {}
+[01:06:22.701] Server  LOG     [assistant/poll] chat.history summary {}
+[01:06:22.725] Server  LOG     [assistant/poll] parsed+return {}
+[01:09:55.561] Server  LOG     [assistant/poll] request {}
+[01:09:55.695] Server  LOG     [assistant/poll] chat.history summary {}
+[01:09:55.698] Server  LOG     [assistant/poll] parsed+return {}
+[01:10:03.336] Server  LOG     [assistant/poll] request {}
+[01:10:03.349] Server  LOG     [assistant/poll] chat.history summary {}
+[01:10:03.351] Server  LOG     [assistant/poll] parsed+return {}
+[01:10:15.720] Server  LOG     [assistant/poll] request {}
+[01:10:15.777] Server  LOG     [assistant/poll] chat.history summary {}
+[01:10:15.780] Server  LOG     [assistant/poll] parsed+return {}
+[01:16:10.540] Server  LOG     [assistant/poll] request {}
+[01:16:10.635] Server  LOG     [assistant/poll] chat.history summary {}
+[01:16:10.638] Server  LOG     [assistant/poll] parsed+return {}
+[01:18:57.833] Server  LOG     [assistant/poll] request {}
+[01:18:57.953] Server  LOG     [assistant/poll] chat.history summary {}
+[01:18:57.955] Server  LOG     [assistant/poll] parsed+return {}
+[01:19:13.890] Server  LOG     [assistant/poll] request {}
+[01:19:13.956] Server  LOG     [assistant/poll] chat.history summary {}
+[01:19:13.957] Server  LOG     [assistant/poll] parsed+return {}
+[01:19:15.581] Server  LOG     [assistant/poll] request {}
+[01:19:15.616] Server  LOG     [assistant/poll] chat.history summary {}
+[01:19:15.617] Server  LOG     [assistant/poll] parsed+return {}
+[01:19:18.290] Server  LOG     [assistant/poll] request {}
+[01:19:18.332] Server  LOG     [assistant/poll] chat.history summary {}
+[01:19:18.333] Server  LOG     [assistant/poll] parsed+return {}
+[01:19:21.281] Server  LOG     [assistant/poll] request {}
+[01:19:21.369] Server  LOG     [assistant/poll] chat.history summary {}
+[01:19:21.369] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:02.500] Server  LOG     [assistant/poll] request {}
+[01:20:02.701] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:02.705] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:07.425] Server  LOG     [assistant/poll] request {}
+[01:20:07.486] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:07.487] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:08.840] Server  LOG     [assistant/poll] request {}
+[01:20:08.982] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:08.983] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:11.762] Server  LOG     [assistant/poll] request {}
+[01:20:11.789] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:11.789] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:14.750] Server  LOG     [assistant/poll] request {}
+[01:20:14.850] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:14.852] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:17.729] Server  LOG     [assistant/poll] request {}
+[01:20:17.777] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:17.778] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:20.735] Server  LOG     [assistant/poll] request {}
+[01:20:20.849] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:20.850] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:23.819] Server  LOG     [assistant/poll] request {}
+[01:20:23.901] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:23.902] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:26.807] Server  LOG     [assistant/poll] request {}
+[01:20:26.900] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:26.900] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:29.780] Server  LOG     [assistant/poll] request {}
+[01:20:29.833] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:29.833] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:32.763] Server  LOG     [assistant/poll] request {}
+[01:20:32.835] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:32.835] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:35.760] Server  LOG     [assistant/poll] request {}
+[01:20:35.819] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:35.821] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:38.741] Server  LOG     [assistant/poll] request {}
+[01:20:38.767] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:38.768] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:41.756] Server  LOG     [assistant/poll] request {}
+[01:20:41.845] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:41.846] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:44.697] Server  LOG     [assistant/poll] request {}
+[01:20:44.725] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:44.726] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:47.707] Server  LOG     [assistant/poll] request {}
+[01:20:47.737] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:47.737] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:50.710] Server  LOG     [assistant/poll] request {}
+[01:20:50.765] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:50.768] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:53.713] Server  LOG     [assistant/poll] request {}
+[01:20:53.752] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:53.753] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:56.745] Server  LOG     [assistant/poll] request {}
+[01:20:56.791] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:56.791] Server  LOG     [assistant/poll] parsed+return {}
+[01:20:59.715] Server  LOG     [assistant/poll] request {}
+[01:20:59.759] Server  LOG     [assistant/poll] chat.history summary {}
+[01:20:59.759] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:02.716] Server  LOG     [assistant/poll] request {}
+[01:21:02.747] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:02.747] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:05.808] Server  LOG     [assistant/poll] request {}
+[01:21:05.861] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:05.861] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:08.771] Server  LOG     [assistant/poll] request {}
+[01:21:08.825] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:08.825] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:11.740] Server  LOG     [assistant/poll] request {}
+[01:21:11.836] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:11.837] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:14.723] Server  LOG     [assistant/poll] request {}
+[01:21:14.797] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:14.797] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:17.763] Server  LOG     [assistant/poll] request {}
+[01:21:17.842] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:17.845] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:20.803] Server  LOG     [assistant/poll] request {}
+[01:21:20.943] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:20.945] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:23.798] Server  LOG     [assistant/poll] request {}
+[01:21:23.896] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:23.897] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:26.767] Server  LOG     [assistant/poll] request {}
+[01:21:26.854] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:26.855] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:29.722] Server  LOG     [assistant/poll] request {}
+[01:21:29.783] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:29.784] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:32.780] Server  LOG     [assistant/poll] request {}
+[01:21:32.825] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:32.825] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:35.691] Server  LOG     [assistant/poll] request {}
+[01:21:35.734] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:35.734] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:39.079] Server  LOG     [assistant/poll] request {}
+[01:21:39.140] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:39.141] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:41.751] Server  LOG     [assistant/poll] request {}
+[01:21:41.793] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:41.795] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:44.799] Server  LOG     [assistant/poll] request {}
+[01:21:44.861] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:44.862] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:47.735] Server  LOG     [assistant/poll] request {}
+[01:21:47.785] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:47.816] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:50.721] Server  LOG     [assistant/poll] request {}
+[01:21:50.761] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:50.761] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:53.752] Server  LOG     [assistant/poll] request {}
+[01:21:53.806] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:53.807] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:56.801] Server  LOG     [assistant/poll] request {}
+[01:21:56.860] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:56.860] Server  LOG     [assistant/poll] parsed+return {}
+[01:21:59.709] Server  LOG     [assistant/poll] request {}
+[01:21:59.745] Server  LOG     [assistant/poll] chat.history summary {}
+[01:21:59.746] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:02.722] Server  LOG     [assistant/poll] request {}
+[01:22:02.772] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:02.772] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:05.784] Server  LOG     [assistant/poll] request {}
+[01:22:05.835] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:05.836] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:08.791] Server  LOG     [assistant/poll] request {}
+[01:22:08.862] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:08.863] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:11.709] Server  LOG     [assistant/poll] request {}
+[01:22:11.749] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:11.749] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:14.771] Server  LOG     [assistant/poll] request {}
+[01:22:14.815] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:14.816] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:17.783] Server  LOG     [assistant/poll] request {}
+[01:22:17.867] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:17.868] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:20.776] Server  LOG     [assistant/poll] request {}
+[01:22:20.805] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:20.805] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:23.731] Server  LOG     [assistant/poll] request {}
+[01:22:23.778] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:23.802] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:26.710] Server  LOG     [assistant/poll] request {}
+[01:22:26.734] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:26.735] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:29.722] Server  LOG     [assistant/poll] request {}
+[01:22:29.747] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:29.749] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:32.733] Server  LOG     [assistant/poll] request {}
+[01:22:32.765] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:32.766] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:35.736] Server  LOG     [assistant/poll] request {}
+[01:22:35.801] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:35.801] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:38.742] Server  LOG     [assistant/poll] request {}
+[01:22:38.781] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:38.784] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:41.805] Server  LOG     [assistant/poll] request {}
+[01:22:41.848] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:41.848] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:44.766] Server  LOG     [assistant/poll] request {}
+[01:22:44.829] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:44.831] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:47.789] Server  LOG     [assistant/poll] request {}
+[01:22:47.852] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:47.852] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:50.752] Server  LOG     [assistant/poll] request {}
+[01:22:50.838] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:50.870] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:53.728] Server  LOG     [assistant/poll] request {}
+[01:22:53.837] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:53.839] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:56.800] Server  LOG     [assistant/poll] request {}
+[01:22:56.889] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:56.889] Server  LOG     [assistant/poll] parsed+return {}
+[01:22:59.711] Server  LOG     [assistant/poll] request {}
+[01:22:59.760] Server  LOG     [assistant/poll] chat.history summary {}
+[01:22:59.761] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:02.744] Server  LOG     [assistant/poll] request {}
+[01:23:02.777] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:02.777] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:05.749] Server  LOG     [assistant/poll] request {}
+[01:23:05.769] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:05.770] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:08.774] Server  LOG     [assistant/poll] request {}
+[01:23:08.839] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:08.839] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:11.807] Server  LOG     [assistant/poll] request {}
+[01:23:11.867] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:11.868] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:15.639] Server  LOG     [assistant/poll] request {}
+[01:23:15.744] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:15.789] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:18.167] Server  LOG     [assistant/poll] request {}
+[01:23:18.292] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:18.293] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:20.727] Server  LOG     [assistant/poll] request {}
+[01:23:20.771] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:20.772] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:23.747] Server  LOG     [assistant/poll] request {}
+[01:23:23.859] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:23.860] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:28.443] Server  LOG     [assistant/poll] request {}
+[01:23:28.594] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:28.595] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:29.817] Server  LOG     [assistant/poll] request {}
+[01:23:29.927] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:29.927] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:32.748] Server  LOG     [assistant/poll] request {}
+[01:23:32.875] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:32.875] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:35.795] Server  LOG     [assistant/poll] request {}
+[01:23:35.860] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:35.861] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:38.729] Server  LOG     [assistant/poll] request {}
+[01:23:39.122] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:39.125] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:41.765] Server  LOG     [assistant/poll] request {}
+[01:23:41.813] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:41.814] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:44.830] Server  LOG     [assistant/poll] request {}
+[01:23:44.988] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:44.989] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:47.705] Server  LOG     [assistant/poll] request {}
+[01:23:47.771] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:47.773] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:50.814] Server  LOG     [assistant/poll] request {}
+[01:23:50.919] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:50.919] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:53.732] Server  LOG     [assistant/poll] request {}
+[01:23:53.784] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:53.785] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:56.758] Server  LOG     [assistant/poll] request {}
+[01:23:56.857] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:56.857] Server  LOG     [assistant/poll] parsed+return {}
+[01:23:59.821] Server  LOG     [assistant/poll] request {}
+[01:23:59.934] Server  LOG     [assistant/poll] chat.history summary {}
+[01:23:59.936] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:02.732] Server  LOG     [assistant/poll] request {}
+[01:24:02.818] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:02.819] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:05.696] Server  LOG     [assistant/poll] request {}
+[01:24:05.748] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:05.749] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:08.774] Server  LOG     [assistant/poll] request {}
+[01:24:08.854] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:08.855] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:11.747] Server  LOG     [assistant/poll] request {}
+[01:24:11.857] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:11.859] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:14.791] Server  LOG     [assistant/poll] request {}
+[01:24:14.937] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:14.938] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:17.845] Server  LOG     [assistant/poll] request {}
+[01:24:17.940] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:17.941] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:20.716] Server  LOG     [assistant/poll] request {}
+[01:24:20.808] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:20.856] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:23.757] Server  LOG     [assistant/poll] request {}
+[01:24:23.864] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:23.865] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:26.780] Server  LOG     [assistant/poll] request {}
+[01:24:26.865] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:26.867] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:29.740] Server  LOG     [assistant/poll] request {}
+[01:24:29.786] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:29.787] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:32.748] Server  LOG     [assistant/poll] request {}
+[01:24:32.777] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:32.778] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:35.749] Server  LOG     [assistant/poll] request {}
+[01:24:35.830] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:35.831] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:38.725] Server  LOG     [assistant/poll] request {}
+[01:24:38.776] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:38.776] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:41.806] Server  LOG     [assistant/poll] request {}
+[01:24:41.847] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:41.883] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:44.771] Server  LOG     [assistant/poll] request {}
+[01:24:44.868] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:44.868] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:47.790] Server  LOG     [assistant/poll] request {}
+[01:24:47.873] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:47.873] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:50.721] Server  LOG     [assistant/poll] request {}
+[01:24:50.811] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:50.812] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:53.782] Server  LOG     [assistant/poll] request {}
+[01:24:53.856] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:53.856] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:56.792] Server  LOG     [assistant/poll] request {}
+[01:24:56.883] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:56.884] Server  LOG     [assistant/poll] parsed+return {}
+[01:24:59.756] Server  LOG     [assistant/poll] request {}
+[01:24:59.886] Server  LOG     [assistant/poll] chat.history summary {}
+[01:24:59.887] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:02.778] Server  LOG     [assistant/poll] request {}
+[01:25:03.014] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:03.016] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:05.775] Server  LOG     [assistant/poll] request {}
+[01:25:05.907] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:05.909] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:08.707] Server  LOG     [assistant/poll] request {}
+[01:25:08.764] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:08.765] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:11.769] Server  LOG     [assistant/poll] request {}
+[01:25:11.833] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:11.834] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:14.763] Server  LOG     [assistant/poll] request {}
+[01:25:14.879] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:14.880] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:19.294] Server  LOG     [assistant/poll] request {}
+[01:25:19.517] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:19.519] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:21.432] Server  LOG     [assistant/poll] request {}
+[01:25:21.501] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:21.502] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:24.345] Server  LOG     [assistant/poll] request {}
+[01:25:24.537] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:24.538] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:27.293] Server  LOG     [assistant/poll] request {}
+[01:25:27.450] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:27.452] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:30.291] Server  LOG     [assistant/poll] request {}
+[01:25:30.396] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:30.432] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:33.238] Server  LOG     [assistant/poll] request {}
+[01:25:33.314] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:33.316] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:36.259] Server  LOG     [assistant/poll] request {}
+[01:25:36.325] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:36.326] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:39.291] Server  LOG     [assistant/poll] request {}
+[01:25:39.402] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:39.402] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:42.313] Server  LOG     [assistant/poll] request {}
+[01:25:42.529] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:42.535] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:45.269] Server  LOG     [assistant/poll] request {}
+[01:25:45.350] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:45.351] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:48.280] Server  LOG     [assistant/poll] request {}
+[01:25:48.513] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:48.513] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:51.316] Server  LOG     [assistant/poll] request {}
+[01:25:51.402] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:51.403] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:54.270] Server  LOG     [assistant/poll] request {}
+[01:25:54.343] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:54.344] Server  LOG     [assistant/poll] parsed+return {}
+[01:25:57.277] Server  LOG     [assistant/poll] request {}
+[01:25:57.390] Server  LOG     [assistant/poll] chat.history summary {}
+[01:25:57.392] Server  LOG     [assistant/poll] parsed+return {}
+[01:26:02.300] Server  LOG     [assistant/poll] request {}
+[01:26:02.431] Server  LOG     [assistant/poll] chat.history summary {}
+[01:26:02.435] Server  LOG     [assistant/poll] parsed+return {}
+[01:26:03.324] Server  LOG     [assistant/poll] request {}
+[01:26:03.459] Server  LOG     [assistant/poll] chat.history summary {}
+[01:26:03.494] Server  LOG     [assistant/poll] parsed+return {}
+[01:26:06.472] Server  LOG     [assistant/poll] request {}
+[01:26:06.541] Server  LOG     [assistant/poll] chat.history summary {}
+[01:26:06.542] Server  LOG     [assistant/poll] parsed+return {}
+[01:26:09.302] Server  LOG     [assistant/poll] request {}
+[01:26:09.393] Server  LOG     [assistant/poll] chat.history summary {}
+[01:26:09.393] Server  LOG     [assistant/poll] parsed+return {}
+[01:26:12.292] Server  LOG     [assistant/poll] request {}
+[01:26:12.376] Server  LOG     [assistant/poll] chat.history summary {}
+[01:26:12.377] Server  LOG     [assistant/poll] parsed+return {}
+[01:26:15.297] Server  LOG     [assistant/poll] request {}
+[01:26:15.371] Server  LOG     [assistant/poll] chat.history summary {}
+[01:26:15.373] Server  LOG     [assistant/poll] parsed+return {}
+[01:27:00.135] Server  LOG     [assistant/poll] request {}
+[01:27:00.739] Server  LOG     [assistant/poll] chat.history summary {}
+[01:27:00.743] Server  LOG     [assistant/poll] parsed+return {}
+[01:38:01.756] Server  LOG     [assistant/poll] request {}
+[01:38:01.881] Server  LOG     [assistant/poll] chat.history summary {}
+[01:38:01.883] Server  LOG     [assistant/poll] parsed+return {}
+[01:39:00.850] Server  LOG     [assistant/poll] request {}
+[01:39:01.145] Server  LOG     [assistant/poll] chat.history summary {}
+[01:39:01.150] Server  LOG     [assistant/poll] parsed+return {}
+[01:39:04.956] Server  LOG     [assistant/poll] request {}
+[01:39:05.163] Server  LOG     [assistant/poll] chat.history summary {}
+[01:39:05.178] Server  LOG     [assistant/poll] parsed+return {}
+[01:39:06.566] Server  LOG     [assistant/poll] request {}
+[01:39:06.673] Server  LOG     [assistant/poll] chat.history summary {}
+[01:39:06.674] Server  LOG     [assistant/poll] parsed+return {}
+[01:39:09.265] Server  LOG     [assistant/poll] request {}
+[01:39:09.371] Server  LOG     [assistant/poll] chat.history summary {}
+[01:39:09.373] Server  LOG     [assistant/poll] parsed+return {}
+[01:40:01.315] Server  LOG     [assistant/poll] request {}
+[01:40:01.462] Server  LOG     [assistant/poll] chat.history summary {}
+[01:40:01.464] Server  LOG     [assistant/poll] parsed+return {}

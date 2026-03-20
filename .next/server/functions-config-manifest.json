@@ -3,6 +3,12 @@
   "functions": {
     "/api/generate": {
       "maxDuration": 120
+    },
+    "/api/generate-video": {
+      "maxDuration": 600
+    },
+    "/api/image-to-video": {
+      "maxDuration": 600
     }
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -226,7 +226,7 @@ function AddCompetitorModal({ onClose }: { onClose: () => void }) {
   );
 }
 
-export default function KnowledgeBasePage() {
+function KnowledgeBasePageInner() {
   const { brandProfile, setBrandProfile, competitors, removeCompetitor, updateCompetitor } = useAppStore();
   const [showAddCompetitor, setShowAddCompetitor] = useState(false);
   const searchParams = useSearchParams();
@@ -588,5 +588,21 @@ export default function KnowledgeBasePage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function KnowledgeBasePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="space-y-6">
+          <div className="flex items-center justify-center py-20">
+            <Spinner className="h-8 w-8" />
+          </div>
+        </div>
+      }
+    >
+      <KnowledgeBasePageInner />
+    </Suspense>
   );
 }

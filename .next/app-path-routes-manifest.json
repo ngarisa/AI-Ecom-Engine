@@ -1,16 +1,25 @@
 {
-  "/_not-found/page": "/_not-found",
+  "/api/enhance-video-prompt/route": "/api/enhance-video-prompt",
   "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
   "/api/foreplay/ad-details/route": "/api/foreplay/ad-details",
   "/api/analyze/route": "/api/analyze",
   "/api/foreplay/brand-ads/route": "/api/foreplay/brand-ads",
   "/api/foreplay/discover-brands/route": "/api/foreplay/discover-brands",
   "/api/foreplay/discover-ads/route": "/api/foreplay/discover-ads",
+  "/api/telegram/poll/route": "/api/telegram/poll",
+  "/api/telegram/stream/route": "/api/telegram/stream",
+  "/api/telegram/webhook/route": "/api/telegram/webhook",
+  "/api/telegram/send/route": "/api/telegram/send",
   "/api/generate/route": "/api/generate",
+  "/api/generate-video/route": "/api/generate-video",
+  "/api/image-to-video/route": "/api/image-to-video",
   "/analytics/page": "/analytics",
+  "/errors/page": "/errors",
   "/discover/page": "/discover",
-  "/generate/page": "/generate",
   "/knowledge-base/page": "/knowledge-base",
+  "/discover-videos/page": "/discover-videos",
   "/page": "/",
-  "/errors/page": "/errors"
+  "/generate/page": "/generate",
+  "/generate-videos/page": "/generate-videos"
 }

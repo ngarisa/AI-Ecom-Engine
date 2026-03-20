@@ -53,6 +53,12 @@
       "namedRegex": "^/api/analyze(?:/)?$"
     },
     {
+      "page": "/api/enhance-video-prompt",
+      "regex": "^/api/enhance\\-video\\-prompt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/enhance\\-video\\-prompt(?:/)?$"
+    },
+    {
       "page": "/api/foreplay/ad-details",
       "regex": "^/api/foreplay/ad\\-details(?:/)?$",
       "routeKeys": {},
@@ -83,10 +89,52 @@
       "namedRegex": "^/api/generate(?:/)?$"
     },
     {
+      "page": "/api/generate-video",
+      "regex": "^/api/generate\\-video(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/generate\\-video(?:/)?$"
+    },
+    {
+      "page": "/api/image-to-video",
+      "regex": "^/api/image\\-to\\-video(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/image\\-to\\-video(?:/)?$"
+    },
+    {
+      "page": "/api/telegram/poll",
+      "regex": "^/api/telegram/poll(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/telegram/poll(?:/)?$"
+    },
+    {
+      "page": "/api/telegram/send",
+      "regex": "^/api/telegram/send(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/telegram/send(?:/)?$"
+    },
+    {
+      "page": "/api/telegram/stream",
+      "regex": "^/api/telegram/stream(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/telegram/stream(?:/)?$"
+    },
+    {
+      "page": "/api/telegram/webhook",
+      "regex": "^/api/telegram/webhook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/telegram/webhook(?:/)?$"
+    },
+    {
       "page": "/discover",
       "regex": "^/discover(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/discover(?:/)?$"
+    },
+    {
+      "page": "/discover-videos",
+      "regex": "^/discover\\-videos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/discover\\-videos(?:/)?$"
     },
     {
       "page": "/errors",
@@ -99,6 +147,12 @@
       "regex": "^/generate(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/generate(?:/)?$"
+    },
+    {
+      "page": "/generate-videos",
+      "regex": "^/generate\\-videos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/generate\\-videos(?:/)?$"
     },
     {
       "page": "/knowledge-base",

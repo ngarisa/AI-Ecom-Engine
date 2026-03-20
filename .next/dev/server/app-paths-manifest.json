@@ -1,3 +1,5 @@
 {
+  "/api/telegram/send/route": "app/api/telegram/send/route.js",
+  "/api/telegram/poll/route": "app/api/telegram/poll/route.js",
   "/page": "app/page.js"
 }
