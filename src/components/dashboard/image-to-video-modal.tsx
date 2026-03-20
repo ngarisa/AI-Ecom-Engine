@@ -19,7 +19,8 @@ interface ImageToVideoModalProps {
 function buildPrompt(ad: ForeplayAd, brandProfile: { brandName: string; brandVoice: string; targetAudience: string; usps: string[]; brandColors: { primary: string; secondary: string; accent: string }; niche: string }): string {
   const brandName = brandProfile.brandName || "the brand";
   const parts: string[] = [
-    `Animate this static advertisement image into a short, engaging video ad for "${brandName}" — spell the brand name exactly as written.`,
+    `Animate this static advertisement image into a natural-looking video ad for "${brandName}".`,
+    `Structure: 1) Start by bringing the image to life with subtle motion — zoom, pan, or parallax. 2) Transition into showcasing the product with the brand name "${brandName}" clearly visible on screen. 3) End with a smooth conclusion showing "${brandName}" prominently — do NOT cut off abruptly, the video must have a complete, natural ending.`,
   ];
 
   if (ad.description) parts.push(`Ad context: ${ad.description}.`);
@@ -29,11 +30,12 @@ function buildPrompt(ad: ForeplayAd, brandProfile: { brandName: string; brandVoi
 
   if (brandProfile.brandVoice) parts.push(`Brand tone: ${brandProfile.brandVoice}.`);
   if (brandProfile.targetAudience) parts.push(`Target audience: ${brandProfile.targetAudience}.`);
-  if (brandProfile.usps.length > 0) parts.push(`Highlight: ${brandProfile.usps.slice(0, 2).join(", ")}.`);
+  if (brandProfile.usps.length > 0) parts.push(`Highlight these selling points: ${brandProfile.usps.slice(0, 2).join(", ")}.`);
 
   parts.push(
     `Brand colors: primary ${brandProfile.brandColors.primary}, accent ${brandProfile.brandColors.accent}.`,
-    `Keep the same visual style and composition. Add subtle motion effects — gentle product animation, smooth transitions, and dynamic energy that feels native to social media. Professional and polished.`,
+    `The brand name "${brandName}" must appear on screen at least at the start and end.`,
+    `Style: cinematic, polished, natural. Smooth camera movements, natural lighting, fluid transitions. Should look like a real professional ad, not AI-generated.`,
   );
 
   return parts.join(" ");
@@ -44,7 +46,7 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
   const imageUrl = ad.image || ad.thumbnail;
   const [prompt, setPrompt] = useState(() => buildPrompt(ad, brandProfile));
   const [aspectRatio, setAspectRatio] = useState("9:16");
-  const [durationSeconds, setDurationSeconds] = useState(15);
+  const [durationSeconds, setDurationSeconds] = useState(8);
   const [generating, setGenerating] = useState(false);
   const [enhancing, setEnhancing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -191,10 +193,8 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
             <div className="space-y-1.5">
               <label className="text-sm font-medium">Duration</label>
               <Select value={String(durationSeconds)} onChange={(e) => setDurationSeconds(Number(e.target.value))}>
-                <option value="10">10 seconds</option>
-                <option value="15">15 seconds</option>
-                <option value="30">30 seconds</option>
-                <option value="60">60 seconds</option>
+                <option value="8">8 seconds</option>
+                <option value="12">12 seconds</option>
               </Select>
             </div>
 
@@ -228,8 +228,8 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
 
             <Card className="bg-muted/50">
               <CardContent className="p-3 text-xs text-muted-foreground space-y-1">
-                <p>Model: <span className="text-foreground">HeyGen</span></p>
-                <p className="text-yellow-500">Generation takes 2–3 minutes.</p>
+                <p>Model: <span className="text-foreground">Sora 2</span></p>
+                <p className="text-yellow-500">Generation takes 2–5 minutes.</p>
               </CardContent>
             </Card>
 

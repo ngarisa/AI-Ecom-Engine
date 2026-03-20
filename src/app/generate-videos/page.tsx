@@ -18,6 +18,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { staggerContainer, fadeRise } from "@/lib/animations";
 
 type Step = "select" | "configure" | "generate" | "review";
 
@@ -30,12 +32,12 @@ function buildVideoPrompt(ad: ForeplayAd, brandProfile: { brandName: string; bra
   const brandName = brandProfile.brandName || "my brand";
 
   const parts: string[] = [
-    `Create a short-form video advertisement for "${brandName}" inspired by a competitor ad.`,
-    `Replicate the competitor ad's visual style, pacing, and energy but replace all competitor branding with "${brandName}" — spell the brand name exactly as written.`,
+    `Create a natural-looking short-form video ad for "${brandName}" with a clear beginning, middle, and end.`,
+    `Structure: 1) HOOK — open with an attention-grabbing visual or motion that stops the scroll. 2) BODY — showcase the product/service with smooth transitions, clearly displaying the brand name "${brandName}" on screen. 3) CONCLUSION — end with a strong call-to-action and the "${brandName}" logo/name prominently visible. The video must NOT cut off abruptly — it should have a natural, complete ending.`,
   ];
 
   if (ad.description) {
-    parts.push(`Reference ad context: ${ad.description}.`);
+    parts.push(`Inspired by this competitor ad: ${ad.description}. Replicate the energy and pacing but make it for "${brandName}".`);
   }
 
   const niche = ad.niches?.length > 0 ? ad.niches.join(", ") : brandProfile.niche;
@@ -50,12 +52,13 @@ function buildVideoPrompt(ad: ForeplayAd, brandProfile: { brandName: string; bra
   }
 
   if (brandProfile.usps.length > 0) {
-    parts.push(`Key selling points to convey: ${brandProfile.usps.slice(0, 3).join(", ")}.`);
+    parts.push(`Make sure to highlight these key selling points: ${brandProfile.usps.slice(0, 3).join(", ")}.`);
   }
 
   parts.push(
-    `Use the brand's color palette: primary ${brandProfile.brandColors.primary}, secondary ${brandProfile.brandColors.secondary}, accent ${brandProfile.brandColors.accent}.`,
-    `Keep the same hook structure and pacing. Make it feel native to social media.`,
+    `Use the brand's color palette throughout: primary ${brandProfile.brandColors.primary}, secondary ${brandProfile.brandColors.secondary}, accent ${brandProfile.brandColors.accent}.`,
+    `The brand name "${brandName}" must appear clearly on screen at least twice — once at the start and once at the end.`,
+    `Style: cinematic, polished, and natural. It should look like a real professional ad, not AI-generated. Smooth camera movements, natural lighting, and fluid transitions.`,
   );
 
   if (additionalInstructions) {
@@ -71,7 +74,7 @@ export default function GenerateVideosPage() {
   const [selectedAd, setSelectedAd] = useState<ForeplayAd | null>(null);
   const [prompt, setPrompt] = useState("");
   const [aspectRatio, setAspectRatio] = useState("9:16");
-  const [durationSeconds, setDurationSeconds] = useState("15");
+  const [durationSeconds, setDurationSeconds] = useState("8");
   const [generating, setGenerating] = useState(false);
   const [enhancing, setEnhancing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -185,19 +188,18 @@ export default function GenerateVideosPage() {
   const thumbnailUrl = selectedAd?.thumbnail || selectedAd?.image;
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold flex items-center gap-2">
-          <Video className="h-6 w-6 text-primary" />
-          Generate Video Ad
+    <motion.div variants={staggerContainer} initial="hidden" animate="show" className="space-y-6">
+      <motion.div variants={fadeRise}>
+        <h1 className="text-[28px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+          Generate <span className="opacity-50">Video Ad</span>
         </h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Duplicate a winning video ad using HeyGen.
+        <p className="text-[13px] opacity-40 leading-relaxed mt-1">
+          Duplicate a winning video ad using AI (Sora).
         </p>
-      </div>
+      </motion.div>
 
       {/* Step indicator */}
-      <div className="flex items-center gap-2 text-sm">
+      <motion.div variants={fadeRise} className="flex items-center gap-2 text-sm">
         {(["select", "configure", "generate", "review"] as Step[]).map((s, i) => {
           const stepOrder: Step[] = ["select", "configure", "generate", "review"];
           const currentIdx = stepOrder.indexOf(step);
@@ -216,7 +218,7 @@ export default function GenerateVideosPage() {
             </div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Step: Select */}
       {step === "select" && (
@@ -276,10 +278,8 @@ export default function GenerateVideosPage() {
               <div className="space-y-1.5">
                 <label className="text-sm font-medium">Duration</label>
                 <Select value={durationSeconds} onChange={(e) => setDurationSeconds(e.target.value)}>
-                  <option value="10">10 seconds</option>
-                  <option value="15">15 seconds</option>
-                  <option value="30">30 seconds</option>
-                  <option value="60">60 seconds</option>
+                  <option value="8">8 seconds</option>
+                  <option value="12">12 seconds</option>
                 </Select>
               </div>
 
@@ -313,9 +313,9 @@ export default function GenerateVideosPage() {
               </div>
 
               <div className="p-3 rounded-lg bg-muted text-xs text-muted-foreground space-y-1">
-                <p>Model: <span className="text-foreground">HeyGen</span></p>
+                <p>Model: <span className="text-foreground">Sora 2</span></p>
                 <p>Brand: <span className="text-foreground">{brandProfile.brandName || "Not set"}</span></p>
-                <p className="text-yellow-500">Generation takes 2–3 minutes. Do not close the page.</p>
+                <p className="text-yellow-500">Generation takes 2–5 minutes. Do not close the page.</p>
               </div>
 
               {!brandProfile.brandName && (
@@ -353,7 +353,7 @@ export default function GenerateVideosPage() {
             <Spinner className="h-10 w-10" />
             <h3 className="text-lg font-semibold">Generating your video...</h3>
             <p className="text-sm text-muted-foreground max-w-sm">
-              HeyGen is creating your video ad. This typically takes 3–7 minutes.
+              Sora is creating your video ad. This typically takes 2–5 minutes.
             </p>
             <p className="text-xs text-muted-foreground tabular-nums">
               {Math.floor(elapsedSeconds / 60)}:{String(elapsedSeconds % 60).padStart(2, "0")} elapsed
@@ -416,6 +416,6 @@ export default function GenerateVideosPage() {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
