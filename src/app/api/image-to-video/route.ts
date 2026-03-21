@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import sharp from "sharp";
 
 export const maxDuration = 600;
 
@@ -49,20 +50,24 @@ async function pollVideoStatus(videoId: string, apiKey: string): Promise<string>
   throw new Error("Video generation timed out after 10 minutes");
 }
 
-async function uploadImageToOpenAI(imageUrl: string, apiKey: string): Promise<string | null> {
+async function uploadImageToOpenAI(imageUrl: string, apiKey: string, targetWidth: number, targetHeight: number): Promise<string | null> {
   try {
     // Fetch the source image
     const imgRes = await fetch(imageUrl);
     if (!imgRes.ok) return null;
 
-    const buffer = await imgRes.arrayBuffer();
-    const contentType = imgRes.headers.get("content-type") || "image/jpeg";
-    const ext = contentType.includes("png") ? "png" : contentType.includes("webp") ? "webp" : "jpeg";
+    const rawBuffer = Buffer.from(await imgRes.arrayBuffer());
+
+    // Resize + cover-crop to exactly match the required video dimensions
+    const resizedBuffer = await sharp(rawBuffer)
+      .resize(targetWidth, targetHeight, { fit: "cover", position: "centre" })
+      .jpeg({ quality: 90 })
+      .toBuffer();
 
     // Upload to OpenAI Files API
     const formData = new FormData();
-    const blob = new Blob([buffer], { type: contentType });
-    formData.append("file", blob, `reference.${ext}`);
+    const blob = new Blob([resizedBuffer], { type: "image/jpeg" });
+    formData.append("file", blob, "reference.jpg");
     formData.append("purpose", "user_data");
 
     const uploadRes = await fetch(`${OPENAI_BASE}/files`, {
@@ -104,9 +109,10 @@ export async function POST(request: NextRequest) {
 
     const duration = String(durationSeconds || 8);
     const size = getVideoSize(aspectRatio);
+    const [targetWidth, targetHeight] = size.split("x").map(Number);
 
-    // Upload the image to OpenAI first, then reference it
-    const fileId = await uploadImageToOpenAI(imageUrl, apiKey);
+    // Upload the image to OpenAI first (resized to exact video dimensions)
+    const fileId = await uploadImageToOpenAI(imageUrl, apiKey, targetWidth, targetHeight);
 
     // Build the request body
     const requestBody: Record<string, unknown> = {
@@ -117,10 +123,7 @@ export async function POST(request: NextRequest) {
     };
 
     if (fileId) {
-      requestBody.input_reference = {
-        type: "file",
-        file: { id: fileId },
-      };
+      requestBody.input_reference = { file_id: fileId };
     }
 
     const genRes = await fetch(`${OPENAI_BASE}/videos`, {

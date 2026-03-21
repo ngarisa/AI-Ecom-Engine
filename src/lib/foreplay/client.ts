@@ -45,6 +45,24 @@ async function foreplayFetch<T>(path: string, params?: Record<string, unknown>):
 
   if (!res.ok) {
     const body = await res.text();
+
+    // Handle specific error cases
+    if (res.status === 402) {
+      try {
+        const errorData = JSON.parse(body);
+        if (errorData.error?.message?.includes("Insufficient credits")) {
+          throw new Error("Foreplay API: Insufficient credits - Please upgrade your plan or wait for credit reset");
+        }
+      } catch (parseError) {
+        // Fall through to generic error
+      }
+      throw new Error("Foreplay API: Payment required - Check your subscription status");
+    }
+
+    if (res.status === 401) {
+      throw new Error("Foreplay API: Invalid API key - Check your FOREPLAY_API_KEY");
+    }
+
     throw new Error(`Foreplay API error ${res.status}: ${body}`);
   }
 

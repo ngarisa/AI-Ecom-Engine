@@ -72,6 +72,7 @@ export function AssistantDrawer() {
   const awaitingAssistantRef = useRef(false);
   const messageIdsRef = useRef<Set<string>>(new Set());
   const pollingStartedRef = useRef(false);
+  const pollInFlightRef = useRef(false);
   const eventSourceRef = useRef<EventSource | null>(null);
   const pendingUserContentRef = useRef<string | null>(null);
   const pendingUserSentAtMsRef = useRef<number | null>(null);
@@ -144,13 +145,16 @@ export function AssistantDrawer() {
   }
 
   function pushMessage(nextMessage: ChatMessage) {
+    // Check and update the ref OUTSIDE the updater so it stays pure.
+    // (React Strict Mode double-invokes updaters; side effects inside them break deduplication.)
+    if (messageIdsRef.current.has(nextMessage.id)) return;
+    messageIdsRef.current.add(nextMessage.id);
+
     setMessages((prev) => {
-      if (messageIdsRef.current.has(nextMessage.id)) return prev;
+      // Guard against the rare case where state already has this message.
+      if (prev.some((m) => m.id === nextMessage.id)) return prev;
       const updated = [...prev, nextMessage];
-      const trimmed = truncateOldest(updated, 200);
-      messageIdsRef.current = new Set(trimmed.map((m) => m.id));
-      safePersistMessages(trimmed);
-      return trimmed;
+      return truncateOldest(updated, 200);
     });
   }
 
@@ -176,10 +180,7 @@ export function AssistantDrawer() {
           ? { ...m, status: "delivered" as const, timestamp: nextIncoming.timestamp }
           : m
       );
-      const trimmed = truncateOldest(updated, 200);
-      messageIdsRef.current = new Set(trimmed.map((m) => m.id));
-      safePersistMessages(trimmed);
-      return trimmed;
+      return truncateOldest(updated, 200);
     });
 
     pendingUserContentRef.current = null;
@@ -203,6 +204,11 @@ export function AssistantDrawer() {
   // Load persisted chat + unread on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
+    // Always reset typing on mount — prevents stuck state from previous session.
+    setTyping(false);
+    setWaitingForResponse(false);
+    awaitingAssistantRef.current = false;
+
     const history = safeParse<ChatMessage[]>(localStorage.getItem(LS_CHAT)) ?? [];
     const trimmed = truncateOldest(history, 200).filter((m) => m && m.id && m.role && typeof m.content === "string");
     messageIdsRef.current = new Set(trimmed.map((m) => m.id));
@@ -221,6 +227,10 @@ export function AssistantDrawer() {
 
   useEffect(() => {
     messagesRef.current = messages;
+    // Keep the dedup set in sync with actual state.
+    messageIdsRef.current = new Set(messages.map((m) => m.id));
+    // Persist to localStorage whenever messages change.
+    if (messages.length > 0) safePersistMessages(messages);
   }, [messages]);
 
   // Mark messages as read when the panel opens
@@ -251,12 +261,23 @@ export function AssistantDrawer() {
       if (pollingStartedRef.current) return;
       pollingStartedRef.current = true;
       pollTimer = setInterval(async () => {
+        if (pollInFlightRef.current) return;
+        pollInFlightRef.current = true;
         try {
           const res = await fetch(`/api/telegram/poll?offset=${pollOffset}`);
           const data = await res.json();
-          if (!res.ok) return;
+          if (!res.ok) {
+            console.warn("[assistant/poll] server error:", data?.error ?? res.status);
+            setConnectionStatus("reconnecting");
+            pollInFlightRef.current = false;
+            return;
+          }
+
+          setConnectionStatus("connected");
           const incoming = Array.isArray(data?.messages) ? data.messages : [];
           const nextOffset = typeof data?.nextOffset === "number" ? data.nextOffset : pollOffset;
+
+          console.debug("[assistant/poll] received", incoming.length, "messages, nextOffset:", nextOffset);
 
           for (const m of incoming) {
             const msgId = String(m.id ?? `asst-${m.timestamp ?? Date.now()}`);
@@ -278,12 +299,10 @@ export function AssistantDrawer() {
             // If this echoes our most recent optimistic user message, update that message in-place.
             if (role === "user" && tryResolvePendingUserMessage(nextMessage)) {
               if (openRef.current) markReadNow(nextMessage.timestamp);
-              setConnectionStatus("connected");
               continue;
             }
 
             pushMessage(nextMessage);
-            setConnectionStatus("connected");
 
             if (role === "assistant") {
               awaitingAssistantRef.current = false;
@@ -303,15 +322,17 @@ export function AssistantDrawer() {
                 }
               }
             } else if (openRef.current) {
-              // When panel is open, also mirror user-side events.
               markReadNow(nextMessage.timestamp);
             }
           }
 
           pollOffset = nextOffset;
           localStorage.setItem(LS_TELEGRAM_OFFSET, String(pollOffset));
-        } catch {
-          // ignore transient polling errors
+        } catch (err) {
+          console.warn("[assistant/poll] fetch error:", err);
+          setConnectionStatus("reconnecting");
+        } finally {
+          pollInFlightRef.current = false;
         }
       }, 3000);
     };
@@ -415,7 +436,14 @@ export function AssistantDrawer() {
   async function handleSend(messageOverride?: string) {
     const content = (messageOverride ?? draft).trim();
     if (!content) return;
-    if (typing) return;
+    if (typing) {
+      console.warn("[handleSend] blocked — typing is true (stuck state). Resetting.");
+      setTyping(false);
+      awaitingAssistantRef.current = false;
+      return;
+    }
+
+    console.log("[handleSend] sending:", content);
 
     const userMessageId = `user-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     const nowIso = new Date().toISOString();
@@ -428,6 +456,7 @@ export function AssistantDrawer() {
     };
 
     pushMessage(userMsg);
+    console.log("[handleSend] pushed user message, messages count:", messagesRef.current.length + 1);
     pendingUserContentRef.current = content;
     pendingUserSentAtMsRef.current = Date.now();
     setDraft("");
@@ -437,37 +466,38 @@ export function AssistantDrawer() {
     awaitingAssistantRef.current = true;
     setConnectionStatus("reconnecting");
 
-    const { includeContext, context } = formatTelegramContextBlockIfNeeded();
+    let includeContext = false;
+    let context: Record<string, unknown> | undefined;
+    try {
+      const ctx = formatTelegramContextBlockIfNeeded();
+      includeContext = ctx.includeContext;
+      context = ctx.context;
+    } catch {
+      // If localStorage is unavailable, just send without context.
+    }
 
     try {
       const res = await fetch("/api/telegram/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: content,
-          includeContext,
-          context,
-        }),
+        body: JSON.stringify({ message: content, includeContext, context }),
       });
+
+      console.log("[handleSend] Telegram send status:", res.status);
 
       if (!res.ok) {
         const data = await res.json().catch(() => null);
         throw new Error(data?.error || `HTTP ${res.status}`);
       }
 
-      // Wait for webhook/poll to deliver the assistant message via stream.
+      // Response will arrive via the polling loop.
     } catch (err) {
       const errorText = err instanceof Error ? err.message : "Send failed";
 
       // Mark the user message as error.
-      setMessages((prev) => {
-        const next: ChatMessage[] = prev.map((m) =>
-          m.id === userMessageId ? { ...m, status: "error" as const } : m
-        );
-        safePersistMessages(next);
-        messageIdsRef.current = new Set(next.map((m) => m.id));
-        return next;
-      });
+      setMessages((prev) =>
+        prev.map((m) => (m.id === userMessageId ? { ...m, status: "error" as const } : m))
+      );
 
       awaitingAssistantRef.current = false;
       setTyping(false);

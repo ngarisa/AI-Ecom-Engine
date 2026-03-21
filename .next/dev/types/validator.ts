@@ -128,6 +128,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/api/assistant/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/assistant">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/assistant/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/api/enhance-video-prompt/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/enhance-video-prompt">> = Specific
@@ -195,6 +204,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/image-to-video">> = Specific
   const handler = {} as typeof import("../../../src/app/api/image-to-video/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/telegram/debug/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/telegram/debug">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/telegram/debug/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

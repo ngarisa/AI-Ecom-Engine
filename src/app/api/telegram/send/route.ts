@@ -139,27 +139,11 @@ export async function POST(request: NextRequest) {
 
     const result = await sendToTelegramBot(text);
 
-    // Also push into OpenClaw directly to guarantee the in-app assistant can read the response
-    // from `chat.history` (avoids any Telegram polling/ingestion edge cases).
-    try {
-      await ensureGatewayClientReady();
-      const sessionKey = await resolveTelegramSessionKey();
-      await cachedGatewayClient.request(
-        "chat.send",
-        {
-          sessionKey,
-          message: text,
-          // Use deliver:true so OpenClaw actually produces a normal assistant response
-          // into the chat session for the in-app poller.
-          deliver: true,
-          idempotencyKey: `tg-${result.messageId}`,
-        },
-        { timeoutMs: 20_000 }
-      );
-    } catch {
-      // Telegram sending still succeeded; in-app response polling will just fall back to whatever
-      // OpenClaw ingests through its own Telegram integration.
-    }
+    // OpenClaw's own Telegram long-polling will see this message, process it,
+    // and store both the user turn and the assistant reply in chat.history for
+    // the Telegram session.  The /api/telegram/poll route reads that history.
+    // We do NOT call chat.send here because that would make OpenClaw process
+    // the same message a second time and potentially create a duplicate session.
 
     return NextResponse.json({
       ok: true,
