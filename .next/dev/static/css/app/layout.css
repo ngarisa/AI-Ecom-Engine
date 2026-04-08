@@ -1332,9 +1332,6 @@
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
   }
-  .pt-0\.5 {
-    padding-top: calc(var(--spacing) * 0.5);
-  }
   .pt-1 {
     padding-top: calc(var(--spacing) * 1);
   }
@@ -2075,37 +2072,6 @@ body {
   color: var(--color-foreground);
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
 }
-@keyframes assistantBellPulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
-  }
-  35% {
-    transform: scale(1.04);
-    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.1);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.assistant-bell-pulse {
-  animation: assistantBellPulse 900ms ease-out;
-}
-.assistant-scroll::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-.assistant-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-}
-.assistant-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
-}
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -2119,31 +2085,6 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
-}
-@keyframes assistantTypingBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateY(-4px);
-    opacity: 1;
-  }
-}
-.assistant-typing-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: #a855f7;
-  display: inline-block;
-  animation: assistantTypingBounce 900ms ease-in-out infinite;
-}
-.assistant-typing-dot:nth-child(2) {
-  animation-delay: 120ms;
-}
-.assistant-typing-dot:nth-child(3) {
-  animation-delay: 240ms;
 }
 @property --tw-translate-x {
   syntax: "*";

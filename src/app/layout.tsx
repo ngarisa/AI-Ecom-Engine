@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Providers } from "./providers";
 import { Sidebar } from "@/components/layout/sidebar";
 import { TopBar } from "@/components/layout/topbar";
-import { AssistantDrawer } from "@/components/assistant/assistant-drawer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,7 +25,6 @@ export default function RootLayout({
               <div className="p-6 max-w-[1600px] mx-auto">{children}</div>
             </main>
           </div>
-          <AssistantDrawer />
         </Providers>
       </body>
     </html>

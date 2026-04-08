@@ -66,7 +66,7 @@ async function uploadImageToOpenAI(imageUrl: string, apiKey: string, targetWidth
 
     // Upload to OpenAI Files API
     const formData = new FormData();
-    const blob = new Blob([resizedBuffer], { type: "image/jpeg" });
+    const blob = new Blob([new Uint8Array(resizedBuffer)], { type: "image/jpeg" });
     formData.append("file", blob, "reference.jpg");
     formData.append("purpose", "user_data");
 

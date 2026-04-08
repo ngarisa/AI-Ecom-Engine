@@ -101,30 +101,6 @@
       "namedRegex": "^/api/image\\-to\\-video(?:/)?$"
     },
     {
-      "page": "/api/telegram/poll",
-      "regex": "^/api/telegram/poll(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/telegram/poll(?:/)?$"
-    },
-    {
-      "page": "/api/telegram/send",
-      "regex": "^/api/telegram/send(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/telegram/send(?:/)?$"
-    },
-    {
-      "page": "/api/telegram/stream",
-      "regex": "^/api/telegram/stream(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/telegram/stream(?:/)?$"
-    },
-    {
-      "page": "/api/telegram/webhook",
-      "regex": "^/api/telegram/webhook(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/api/telegram/webhook(?:/)?$"
-    },
-    {
       "page": "/discover",
       "regex": "^/discover(?:/)?$",
       "routeKeys": {},

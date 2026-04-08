@@ -128,15 +128,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../../src/app/api/assistant/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/assistant">> = Specific
-  const handler = {} as typeof import("../../../src/app/api/assistant/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
 // Validate ../../../src/app/api/enhance-video-prompt/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/enhance-video-prompt">> = Specific
@@ -204,51 +195,6 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/image-to-video">> = Specific
   const handler = {} as typeof import("../../../src/app/api/image-to-video/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../src/app/api/telegram/debug/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/telegram/debug">> = Specific
-  const handler = {} as typeof import("../../../src/app/api/telegram/debug/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../src/app/api/telegram/poll/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/telegram/poll">> = Specific
-  const handler = {} as typeof import("../../../src/app/api/telegram/poll/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../src/app/api/telegram/send/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/telegram/send">> = Specific
-  const handler = {} as typeof import("../../../src/app/api/telegram/send/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../src/app/api/telegram/stream/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/telegram/stream">> = Specific
-  const handler = {} as typeof import("../../../src/app/api/telegram/stream/route.js")
-  type __Check = __IsExpected<typeof handler>
-  // @ts-ignore
-  type __Unused = __Check
-}
-
-// Validate ../../../src/app/api/telegram/webhook/route.ts
-{
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/telegram/webhook">> = Specific
-  const handler = {} as typeof import("../../../src/app/api/telegram/webhook/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

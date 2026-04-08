@@ -1,5 +1,5 @@
 {
-  "/api/telegram/poll/route": "app/api/telegram/poll/route.js",
-  "/api/telegram/send/route": "app/api/telegram/send/route.js",
-  "/generate-videos/page": "app/generate-videos/page.js"
+  "/api/foreplay/brand-ads/route": "app/api/foreplay/brand-ads/route.js",
+  "/page": "app/page.js",
+  "/knowledge-base/page": "app/knowledge-base/page.js"
 }
