@@ -1,5 +1,5 @@
 {
-  "/api/foreplay/brand-ads/route": "app/api/foreplay/brand-ads/route.js",
-  "/page": "app/page.js",
-  "/knowledge-base/page": "app/knowledge-base/page.js"
+  "/api/foreplay/discover-ads/route": "app/api/foreplay/discover-ads/route.js",
+  "/api/image-to-video/route": "app/api/image-to-video/route.js",
+  "/discover/page": "app/discover/page.js"
 }

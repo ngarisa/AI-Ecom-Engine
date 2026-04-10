@@ -193,8 +193,9 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
             <div className="space-y-1.5">
               <label className="text-sm font-medium">Duration</label>
               <Select value={String(durationSeconds)} onChange={(e) => setDurationSeconds(Number(e.target.value))}>
+                <option value="4">4 seconds</option>
+                <option value="6">6 seconds</option>
                 <option value="8">8 seconds</option>
-                <option value="12">12 seconds</option>
               </Select>
             </div>
 
@@ -228,7 +229,7 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
 
             <Card className="bg-muted/50">
               <CardContent className="p-3 text-xs text-muted-foreground space-y-1">
-                <p>Model: <span className="text-foreground">Sora 2</span></p>
+                <p>Model: <span className="text-foreground">Veo 3.1</span></p>
                 <p className="text-yellow-500">Generation takes 2–5 minutes.</p>
               </CardContent>
             </Card>

@@ -1,35 +1,55 @@
 import { NextRequest, NextResponse } from "next/server";
+import { GoogleGenAI } from "@google/genai";
 import sharp from "sharp";
 
 export const maxDuration = 600;
 
-const OPENAI_BASE = "https://api.openai.com/v1";
+const VEO_MODEL = "veo-3.1-generate-preview";
 
-function getVideoSize(aspectRatio?: string): string {
-  if (aspectRatio === "16:9") return "1280x720";
-  return "720x1280";
+function getAspectRatio(aspectRatio?: string): "16:9" | "9:16" {
+  return aspectRatio === "9:16" ? "9:16" : "16:9";
 }
 
-async function pollVideoStatus(videoId: string, apiKey: string): Promise<string> {
+function getTargetDimensions(aspectRatio?: string): { width: number; height: number } {
+  if (aspectRatio === "16:9") return { width: 1280, height: 720 };
+  return { width: 720, height: 1280 };
+}
+
+function getDurationSeconds(durationSeconds?: number): 4 | 6 | 8 {
+  if (durationSeconds === 4 || durationSeconds === 6 || durationSeconds === 8) {
+    return durationSeconds;
+  }
+  return 8;
+}
+
+async function pollVideoStatus(operation: unknown, ai: GoogleGenAI, apiKey: string): Promise<string> {
   const maxAttempts = 120;
+  let currentOperation = operation as {
+    done?: boolean;
+    response?: { generatedVideos?: Array<{ video?: { uri?: string } }> };
+    error?: { message?: string };
+  };
 
   for (let i = 0; i < maxAttempts; i++) {
     await new Promise((resolve) => setTimeout(resolve, 5000));
 
-    const res = await fetch(`${OPENAI_BASE}/videos/${videoId}`, {
-      headers: { Authorization: `Bearer ${apiKey}` },
-    });
+    currentOperation = await ai.operations.getVideosOperation({
+      operation: currentOperation,
+    }) as typeof currentOperation;
 
-    if (!res.ok) {
-      const errText = await res.text();
-      throw new Error(`Poll error ${res.status}: ${errText}`);
-    }
+    if (currentOperation.done === true) {
+      if (currentOperation.error) {
+        const errMsg = currentOperation.error.message || JSON.stringify(currentOperation.error);
+        throw new Error(`Video generation failed: ${errMsg}`);
+      }
 
-    const data = await res.json();
+      const videoUri = currentOperation.response?.generatedVideos?.[0]?.video?.uri;
+      if (!videoUri) {
+        throw new Error(`No video URI returned from Veo API. Raw: ${JSON.stringify(currentOperation)}`);
+      }
 
-    if (data.status === "completed") {
-      const contentRes = await fetch(`${OPENAI_BASE}/videos/${videoId}/content`, {
-        headers: { Authorization: `Bearer ${apiKey}` },
+      const contentRes = await fetch(videoUri, {
+        headers: { "x-goog-api-key": apiKey },
         redirect: "follow",
       });
 
@@ -40,53 +60,68 @@ async function pollVideoStatus(videoId: string, apiKey: string): Promise<string>
       const buffer = await contentRes.arrayBuffer();
       return Buffer.from(buffer).toString("base64");
     }
-
-    if (data.status === "failed") {
-      const errMsg = data.error?.message || JSON.stringify(data);
-      throw new Error(`Video generation failed: ${errMsg}`);
-    }
   }
 
   throw new Error("Video generation timed out after 10 minutes");
 }
 
-async function uploadImageToOpenAI(imageUrl: string, apiKey: string, targetWidth: number, targetHeight: number): Promise<string | null> {
+async function prepareReferenceImage(imageUrl: string, targetWidth: number, targetHeight: number): Promise<string | null> {
   try {
-    // Fetch the source image
     const imgRes = await fetch(imageUrl);
     if (!imgRes.ok) return null;
 
     const rawBuffer = Buffer.from(await imgRes.arrayBuffer());
 
-    // Resize + cover-crop to exactly match the required video dimensions
     const resizedBuffer = await sharp(rawBuffer)
       .resize(targetWidth, targetHeight, { fit: "cover", position: "centre" })
       .jpeg({ quality: 90 })
       .toBuffer();
 
-    // Upload to OpenAI Files API
-    const formData = new FormData();
-    const blob = new Blob([new Uint8Array(resizedBuffer)], { type: "image/jpeg" });
-    formData.append("file", blob, "reference.jpg");
-    formData.append("purpose", "user_data");
-
-    const uploadRes = await fetch(`${OPENAI_BASE}/files`, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}` },
-      body: formData,
-    });
-
-    if (!uploadRes.ok) {
-      console.error("[image-to-video] File upload failed:", await uploadRes.text());
-      return null;
-    }
-
-    const uploadData = await uploadRes.json();
-    return uploadData.id || null;
+    return resizedBuffer.toString("base64");
   } catch (err) {
-    console.error("[image-to-video] Failed to upload image:", err);
+    console.error("[image-to-video] Failed to prepare image:", err);
     return null;
   }
+}
+
+async function createVideoOperation(
+  prompt: string,
+  imageBase64: string,
+  ratio: "16:9" | "9:16",
+  duration: 4 | 6 | 8,
+  apiKey: string,
+): Promise<unknown> {
+  const ai = new GoogleGenAI({ apiKey });
+  const maxAttempts = 3;
+  let lastError = "Unknown Gemini error";
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await ai.models.generateVideos({
+        model: VEO_MODEL,
+        prompt,
+        image: {
+          imageBytes: imageBase64,
+          mimeType: "image/jpeg",
+        },
+        config: {
+          aspectRatio: ratio,
+          durationSeconds: duration,
+        },
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      lastError = message;
+      const is5xx = /(?:\b5\d\d\b|INTERNAL)/i.test(message);
+      if (!is5xx || attempt === maxAttempts) {
+        break;
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 1500 * attempt));
+    }
+  }
+
+  throw new Error(lastError);
 }
 
 export async function POST(request: NextRequest) {
@@ -98,55 +133,31 @@ export async function POST(request: NextRequest) {
       durationSeconds?: number;
     };
 
-    const apiKey = process.env.OPENAI_API_KEY;
+    const apiKey =
+      process.env.GEMINI_API_KEY ||
+      process.env.GOOGLE_API_KEY ||
+      process.env.GOOGLE_AI_API_KEY ||
+      process.env.GOOGLE_VEO_IMG2VID_API_KEY;
     if (!apiKey) {
-      return NextResponse.json({ error: "OPENAI_API_KEY not configured" }, { status: 500 });
+      return NextResponse.json({ error: "GEMINI_API_KEY not configured" }, { status: 500 });
     }
 
     if (!prompt || !imageUrl) {
       return NextResponse.json({ error: "prompt and imageUrl are required" }, { status: 400 });
     }
 
-    const duration = String(durationSeconds || 8);
-    const size = getVideoSize(aspectRatio);
-    const [targetWidth, targetHeight] = size.split("x").map(Number);
+    const duration = getDurationSeconds(durationSeconds);
+    const ratio = getAspectRatio(aspectRatio);
+    const { width: targetWidth, height: targetHeight } = getTargetDimensions(ratio);
 
-    // Upload the image to OpenAI first (resized to exact video dimensions)
-    const fileId = await uploadImageToOpenAI(imageUrl, apiKey, targetWidth, targetHeight);
-
-    // Build the request body
-    const requestBody: Record<string, unknown> = {
-      model: "sora-2",
-      prompt,
-      size,
-      seconds: duration,
-    };
-
-    if (fileId) {
-      requestBody.input_reference = { file_id: fileId };
+    const imageBase64 = await prepareReferenceImage(imageUrl, targetWidth, targetHeight);
+    if (!imageBase64) {
+      throw new Error("Failed to fetch or prepare reference image");
     }
 
-    const genRes = await fetch(`${OPENAI_BASE}/videos`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify(requestBody),
-    });
-
-    if (!genRes.ok) {
-      const errText = await genRes.text();
-      throw new Error(`OpenAI Sora API error ${genRes.status}: ${errText}`);
-    }
-
-    const genData = await genRes.json();
-    const videoId = genData.id;
-    if (!videoId) {
-      throw new Error(`No video ID returned from Sora API. Raw: ${JSON.stringify(genData)}`);
-    }
-
-    const videoBase64 = await pollVideoStatus(videoId, apiKey);
+    const ai = new GoogleGenAI({ apiKey });
+    const operation = await createVideoOperation(prompt, imageBase64, ratio, duration, apiKey);
+    const videoBase64 = await pollVideoStatus(operation, ai, apiKey);
 
     return NextResponse.json({ data: { videoBase64, mimeType: "video/mp4" } });
   } catch (error) {
