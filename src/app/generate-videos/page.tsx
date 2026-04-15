@@ -143,6 +143,8 @@ export default function GenerateVideosPage() {
         body: JSON.stringify({
           prompt,
           thumbnailUrl: selectedAd?.thumbnail || selectedAd?.image || null,
+          brandName: brandProfile.brandName || "",
+          brandLogoDataUrl: brandProfile.logoFiles[0]?.url || "",
           aspectRatio,
           durationSeconds,
         }),
@@ -194,7 +196,7 @@ export default function GenerateVideosPage() {
           Generate <span className="opacity-50">Video Ad</span>
         </h1>
         <p className="text-[13px] opacity-40 leading-relaxed mt-1">
-          Duplicate a winning video ad using AI (Veo 3.1).
+          Duplicate a winning video ad using AI (Seedance 1 Pro).
         </p>
       </motion.div>
 
@@ -314,7 +316,7 @@ export default function GenerateVideosPage() {
               </div>
 
               <div className="p-3 rounded-lg bg-muted text-xs text-muted-foreground space-y-1">
-                <p>Model: <span className="text-foreground">Veo 3.1</span></p>
+                <p>Model: <span className="text-foreground">Seedance 1 Pro</span></p>
                 <p>Brand: <span className="text-foreground">{brandProfile.brandName || "Not set"}</span></p>
                 <p className="text-yellow-500">Generation takes 2–5 minutes. Do not close the page.</p>
               </div>
@@ -354,7 +356,7 @@ export default function GenerateVideosPage() {
             <Spinner className="h-10 w-10" />
             <h3 className="text-lg font-semibold">Generating your video...</h3>
             <p className="text-sm text-muted-foreground max-w-sm">
-              Veo is creating your video ad. This typically takes 2–5 minutes.
+              Seedance is creating your video ad. This typically takes 2–5 minutes.
             </p>
             <p className="text-xs text-muted-foreground tabular-nums">
               {Math.floor(elapsedSeconds / 60)}:{String(elapsedSeconds % 60).padStart(2, "0")} elapsed

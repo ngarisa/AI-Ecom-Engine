@@ -89,7 +89,14 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
       const res = await fetch("/api/image-to-video", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt, imageUrl, aspectRatio, durationSeconds }),
+        body: JSON.stringify({
+          prompt,
+          imageUrl,
+          brandName: brandProfile.brandName || "",
+          brandLogoDataUrl: brandProfile.logoFiles[0]?.url || "",
+          aspectRatio,
+          durationSeconds,
+        }),
       });
 
       const data = await res.json();
@@ -229,7 +236,7 @@ export function ImageToVideoModal({ ad, onClose }: ImageToVideoModalProps) {
 
             <Card className="bg-muted/50">
               <CardContent className="p-3 text-xs text-muted-foreground space-y-1">
-                <p>Model: <span className="text-foreground">Veo 3.1</span></p>
+                <p>Model: <span className="text-foreground">Seedance 1 Pro</span></p>
                 <p className="text-yellow-500">Generation takes 2–5 minutes.</p>
               </CardContent>
             </Card>
