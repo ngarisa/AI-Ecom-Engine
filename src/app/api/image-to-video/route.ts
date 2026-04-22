@@ -354,7 +354,7 @@ export async function POST(request: NextRequest) {
       durationSeconds?: number;
     };
 
-    const apiKey = getSeedanceApiKey();
+    const apiKey = process.env.SEEDANCE_IMAGE_TO_VIDEO_API_KEY || getSeedanceApiKey();
     if (!apiKey) {
       return NextResponse.json({ error: "SEEDANCE_API_KEY (or REPLICATE_API_TOKEN) not configured" }, { status: 500 });
     }
@@ -392,6 +392,7 @@ export async function POST(request: NextRequest) {
       aspectRatio: seedanceRatio,
       duration: seedanceDuration,
       imageDataUrl: brandedPromptImage,
+      modelOverride: process.env.SEEDANCE_IMAGE_TO_VIDEO_MODEL,
     });
     const outputUrl = await waitForSeedanceOutputUrl(predictionId, apiKey);
     const videoBase64 = await fetchSeedanceVideoAsBase64(outputUrl);

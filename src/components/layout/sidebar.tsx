@@ -10,7 +10,6 @@ import {
   ChevronDown,
   LayoutGrid,
   ArrowUp,
-  AlertCircle,
   Plus,
   Factory,
   Sun,
@@ -34,7 +33,6 @@ const workspaceNav = [
 
 export function Sidebar() {
   const pathname = usePathname();
-  const errorCount = useAppStore((s) => s.errorLogs.length);
   const brandName = useAppStore((s) => s.brandProfile.brandName);
   const competitors = useAppStore((s) => s.competitors);
   const theme = useAppStore((s) => s.theme);
@@ -118,27 +116,6 @@ export function Sidebar() {
                 {item.label}
               </Link>
             ))}
-
-            {/* Errors */}
-            <Link
-              href="/errors"
-              className={cn(
-                "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
-                isActive("/errors")
-                  ? "bg-indigo-600/20 text-indigo-400"
-                  : errorCount > 0
-                    ? "text-orange-400 hover:bg-orange-500/10"
-                    : "text-white/50 hover:bg-white/5 hover:text-white/80"
-              )}
-            >
-              <AlertCircle className="h-4 w-4 shrink-0" />
-              Errors
-              {errorCount > 0 && (
-                <span className="ml-auto text-[10px] bg-red-500 text-white px-1.5 py-0.5 rounded-full font-bold min-w-[18px] text-center">
-                  {errorCount}
-                </span>
-              )}
-            </Link>
           </div>
         </div>
 

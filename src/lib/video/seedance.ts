@@ -84,14 +84,15 @@ export async function createSeedancePrediction(params: {
   imageDataUrl?: string;
   aspectRatio: "16:9" | "9:16";
   duration: number;
+  modelOverride?: string;
 }): Promise<string> {
-  const { apiKey, prompt, imageDataUrl, aspectRatio, duration } = params;
+  const { apiKey, prompt, imageDataUrl, aspectRatio, duration, modelOverride } = params;
 
   if (shouldUseAtlas(apiKey)) {
     if (!imageDataUrl) {
       throw new Error("Seedance (Atlas) requires a reference image for image-to-video.");
     }
-    const atlasModel = getAtlasModel();
+    const atlasModel = modelOverride || getAtlasModel();
     const atlasContent = [
       {
         type: "image_url",

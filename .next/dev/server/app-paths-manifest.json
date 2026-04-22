@@ -1,6 +1,6 @@
 {
-  "/api/image-to-video/route": "app/api/image-to-video/route.js",
+  "/api/generate-video/route": "app/api/generate-video/route.js",
+  "/api/foreplay/discover-ads/route": "app/api/foreplay/discover-ads/route.js",
   "/generate-videos/page": "app/generate-videos/page.js",
-  "/discover-videos/page": "app/discover-videos/page.js",
-  "/discover/page": "app/discover/page.js"
+  "/discover-videos/page": "app/discover-videos/page.js"
 }

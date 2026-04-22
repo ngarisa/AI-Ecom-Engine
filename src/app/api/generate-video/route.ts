@@ -387,6 +387,7 @@ export async function POST(request: NextRequest) {
       aspectRatio: seedanceRatio,
       duration: seedanceDuration,
       imageDataUrl: brandedPromptImage,
+      modelOverride: process.env.SEEDANCE_VIDEO_TO_VIDEO_MODEL,
     });
     const outputUrl = await waitForSeedanceOutputUrl(predictionId, apiKey);
     const videoBase64 = await fetchSeedanceVideoAsBase64(outputUrl);
